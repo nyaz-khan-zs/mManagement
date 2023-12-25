@@ -1,12 +1,18 @@
 .leave-main {
   display: flex;
   gap: 12px;
+  height: 100%;
+}
+.leave-page {
+  height: 100%;
 }
 .all-leaves {
   width: 49%;
+  // height: 100%;
 }
 .leave-info {
   width: 49%;
+  // height: 100%;
 }
 @media only screen and (max-width: 800px) {
   .leave-info {

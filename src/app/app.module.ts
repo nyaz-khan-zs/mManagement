@@ -9,6 +9,8 @@ import { LeaveInfoComponent } from './containers/leave-info/leave-info.component
 import { LeaveHeaderComponent } from './containers/leave-header/leave-header.component';
 import { CardComponent } from './components/card/card.component';
 import { LeaveSummaryComponent } from './components/leave-summary/leave-summary.component';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
+import { DatePickerComponent } from './components/date-picker/date-picker.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { LeaveSummaryComponent } from './components/leave-summary/leave-summary.
     LeaveInfoComponent,
     LeaveHeaderComponent,
     CardComponent,
-    LeaveSummaryComponent
+    LeaveSummaryComponent,
+    PieChartComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,

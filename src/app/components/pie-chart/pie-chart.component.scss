@@ -1,0 +1,54 @@
+.graph {
+  display: flex;
+  gap: 5px;
+  //   height: 150px;
+
+  .bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    border: 1px solid #e1e3e6;
+    border-right: none;
+    border-top: none;
+    height: 150px;
+
+    .bar {
+      // border: 2px solid red;
+      background-color: #5c8aff;
+      width: 20px;
+      border-radius: 4px 4px 0px 0px;
+    }
+
+    .bar:hover {
+      opacity: 0.8;
+    }
+  }
+  .titles {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+
+    .title {
+      width: 20px;
+    }
+  }
+
+  .y-axis {
+    width: 5%;
+    height: 150px;
+
+    .y-axis-value {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      div {
+        flex: 1;
+      }
+    }
+  }
+
+  .graph-items {
+    width: 95%;
+  }
+}

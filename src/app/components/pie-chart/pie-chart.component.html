@@ -1,0 +1,28 @@
+<div class="graph">
+  <div class="y-axis">
+    <div *ngIf="isMonth == true; else day" class="y-axis-value">
+      <div *ngFor="let item of monthValues">{{ item }}</div>
+    </div>
+    <!-- <ng-tem #dayValue></ng-tem> -->
+    <ng-template #day>
+      <div class="y-axis-value">
+        <div *ngFor="let item of dayValues">{{ item }}</div>
+      </div></ng-template
+    >
+  </div>
+
+  <div class="graph-items">
+    <div class="bars">
+      <div
+        class="bar"
+        *ngFor="let item of data"
+        [style.height.%]="item.height"
+      ></div>
+    </div>
+    <div class="titles">
+      <div class="title" *ngFor="let item of data">
+        {{ item.item }}
+      </div>
+    </div>
+  </div>
+</div>
