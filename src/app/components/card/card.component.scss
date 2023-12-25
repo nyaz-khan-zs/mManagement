@@ -1,0 +1,62 @@
+.card {
+  padding: 12px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 1rem;
+
+  .date {
+    display: flex;
+    justify-content: space-between;
+
+    .left-date {
+      color: #36404a;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+
+  .leave-tag {
+    display: flex;
+    gap: 12px;
+
+    .leave-days {
+      border-radius: 10px;
+      background-color: #f8f8fb;
+      padding: 4px 8px;
+    }
+    .leave-session {
+      border-radius: 10px;
+      background-color: #f8f8fb;
+      padding: 4px 8px;
+    }
+    .leave-type {
+      border-radius: 10px;
+      background-color: #f8f8fb;
+      padding: 4px 8px;
+    }
+    .leave-status {
+      border-radius: 10px;
+      background-color: #eefde8;
+      padding: 4px 8px;
+      color: #269f11;
+    }
+    .cc {
+      background-color: #f8f8fb;
+      border-radius: 14px;
+      padding: 0.25rem 0.5rem;
+    }
+  }
+
+  .button-container {
+    button {
+      padding: 8px 8px 8px 12px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      color: #4d4d56;
+      border: 1px solid #e1e3e6;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+.leave-info-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8fb;
+  padding: 16px;
+  border-radius: 10px;
+  gap: 12px;
+
+  .profile {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    img {
+      border-radius: 50%;
+    }
+
+    .profile-info {
+      p {
+        margin: 0px;
+      }
+    }
+  }
+
+  .day-stats-section-main {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    background-color: white;
+    border-radius: 10px;
+    gap: 24px;
+
+    .day-stats-section {
+      display: flex;
+      justify-content: space-between;
+
+      .leave-approval-stats {
+        display: flex;
+        flex-direction: column;
+
+        .overall-leave-text {
+          color: #979797;
+        }
+      }
+
+      .month-picker {
+        display: flex;
+        padding: 8px 16px;
+        background-color: white;
+        border-radius: 10px;
+        border: 1px solid #e1e3e6;
+        gap: 12px;
+        align-items: center;
+      }
+    }
+    .progress-bar {
+      //   width: 100%;
+      background-color: rgb(255, 209, 124);
+      line-height: 23px;
+      padding: 0 0 0 4px;
+      font-size: 0.8rem;
+    }
+
+    .label-box {
+      .label {
+        background-color: rgb(255, 209, 124);
+        height: 10px;
+        width: 10px;
+        display: inline-flex;
+        margin-right: 4px;
+      }
+
+      span {
+        font-size: 13px;
+        font-weight: 400;
+      }
+    }
+  }
+}

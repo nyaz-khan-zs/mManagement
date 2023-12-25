@@ -1,0 +1,28 @@
+.header-items {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  height: 10%;
+
+  .calender-button,
+  .filter-button {
+    background-color: #f8f8fb;
+    border-radius: 0.25rem;
+    padding: 3px;
+  }
+
+  .apply-leave-button {
+    button {
+      border-radius: 10px;
+      background-color: #5c8aff;
+      color: white;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 400;
+      height: 47px;
+      width: 104px;
+      border: none;
+    }
+  }
+}

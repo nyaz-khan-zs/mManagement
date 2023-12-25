@@ -1,0 +1,75 @@
+<div class="leave-info-container">
+  <div class="profile">
+    <img src="https://picsum.photos/200" height="48px" width="48px" />
+    <div class="profile-info">
+      <p class="name">John Doe</p>
+      <p class="designation">SDE-1</p>
+    </div>
+  </div>
+  <app-leave-summary></app-leave-summary>
+  <div class="day-stats-section-main">
+    <div class="day-stats-section">
+      <div class="leave-approval-stats">
+        <span>Leave Approval Statistics {{ title }}</span>
+        <span class="overall-leave-text">Overall leave approval stats</span>
+      </div>
+      <div class="month-picker">
+        <span>{{ month }}</span>
+        <svg
+          class="calandar-icon"
+          version="1.1"
+          width="20px"
+          height="20px"
+          viewBox="0 0 20.0 20.0"
+        >
+          <title>Calendar</title>
+          <g transform="translate(3.125 3.125)">
+            <path
+              d="M1.875,0 L11.875,0 C12.9105339,-4.12269097e-16 13.75,0.839466094 13.75,1.875 L13.75,11.875 C13.75,12.9105339 12.9105339,13.75 11.875,13.75 L1.875,13.75 C0.839466094,13.75 -9.52282766e-17,12.9105339 0,11.875 L0,1.875 C-3.48860933e-16,0.839466094 0.839466094,-3.18201124e-17 1.875,0 Z"
+              stroke="#70839B"
+              stroke-width="1.5"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </g>
+          <g transform="translate(13.7109375 1.875)">
+            <path
+              d="M0.05,0 L0.05,2.5"
+              stroke="#70839B"
+              stroke-width="1.5"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </g>
+          <g transform="translate(6.2109375 1.875)">
+            <path
+              d="M0.05,0 L0.05,2.5"
+              stroke="#70839B"
+              stroke-width="1.5"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </g>
+          <g transform="translate(3.125 7.835937499999273)">
+            <path
+              d="M0,0.05 L13.75,0.05"
+              stroke="#70839B"
+              stroke-width="1.5"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="progress-bar" [style.width.%]="progress">{{ progress }}%</div>
+    <div class="label-box">
+      <div class="label"></div>
+      <span>Auto Approved</span>
+    </div>
+  </div>
+</div>

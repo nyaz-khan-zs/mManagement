@@ -1,0 +1,29 @@
+.leave-summary {
+  display: flex;
+  overflow-x: scroll;
+  //   justify-content: space-between;
+  padding: 12px;
+  background-color: white;
+  border-radius: 10px;
+  gap: 12px;
+
+  .leave-detail {
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 1rem;
+    width: 7rem;
+
+    .leave-number {
+      color: #5c8aff;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .leave-type {
+      align-items: center;
+      display: flex;
+      font-size: 0.75rem;
+      font-weight: 400;
+    }
+  }
+}

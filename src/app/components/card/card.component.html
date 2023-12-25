@@ -1,0 +1,22 @@
+<div class="card" *ngFor="let leaveData of leaveCardData">
+  <div class="date">
+    <div class="left-date">{{ leaveData.dayOfLeave }},{{ leaveData.date }}</div>
+    <div class="right-date">{{ leaveData.date }}</div>
+  </div>
+  <div class="leave-tag">
+    <div class="leave-days">{{ leaveData.leaveDays }}</div>
+    <div class="leave-session">{{ leaveData.session }}</div>
+    <div class="leave-type">{{ leaveData.type }}</div>
+    <div class="leave-status">
+      {{ leaveData.leaveStatus }}
+      <span *ngIf="leaveData.leaveStatus === 'Approved By:'">{{
+        leaveData.approvedBy
+      }}</span>
+    </div>
+    <div class="cc">cc</div>
+  </div>
+  <div class="reason">{{ leaveData.reason }}</div>
+  <div class="button-container">
+    <button>Withdraw</button>
+  </div>
+</div>
