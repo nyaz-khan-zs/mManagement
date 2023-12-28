@@ -94,6 +94,7 @@
       *ngFor="let item of data"
       [ngClass]="item.name === selectedTab ? 'select' : ''"
       (click)="changeSelectedTab(item.name)"
+      [routerLink]="item.routerLink"
     >
       <img [src]="item.logo" alt="" />
       <span [className]="isVisited ? 'hide' : ''">{{ item.name }}</span>

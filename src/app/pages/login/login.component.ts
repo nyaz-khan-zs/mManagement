@@ -5,6 +5,8 @@ import { jwtDecode } from 'jwt-decode';
 import { LocalStorageService } from 'src/app/core/utils/local-storage/local-storage.service';
 import { GoogleUserData } from 'src/app/core/models/session-data.interface';
 import { LoginRequest } from 'src/app/core/models/login-request.interface';
+import { Router } from '@angular/router';
+import { RoutePaths } from 'src/app/core/enum/route-path';
 
 declare global {
   interface Window {
@@ -20,9 +22,12 @@ declare global {
 export class LoginComponent implements OnInit {
   GOOGLE_CLIENT_ID = environment.REACT_APP_GOOGLE_LOGIN_CLIENT_ID;
 
-  constructor(private httpService : HttpService,private localStorageService : LocalStorageService) {}
+  constructor(private httpService : HttpService,private localStorageService : LocalStorageService,private router:Router) {}
 
   ngOnInit(): void {
+    if(this.localStorageService.isUserLoggedIn()){
+      this.router.navigate([RoutePaths.DASHBOARD_ROUTE]);
+    }
     try {
       if (window.google !== undefined && window.google.accounts !== undefined) {
         window.google.accounts.id.initialize({
@@ -91,6 +96,7 @@ export class LoginComponent implements OnInit {
             token : loginResponse.data.accessToken,
             userData : userData,
           })
+          this.router.navigate([RoutePaths.DASHBOARD_ROUTE])
         },
       error : (error) =>{
         console.log(error);

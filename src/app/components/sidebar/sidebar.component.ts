@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { SideBarData } from 'src/app/core/models/sidebarData';
+import { RoutePaths } from 'src/app/core/enum/route-path';
 
 @Component({
   selector: 'app-sidebar',
@@ -26,30 +27,37 @@ export class SidebarComponent implements OnInit {
     {
       name: 'Dashboard',
       logo: this.dashboardIcon,
+      routerLink : RoutePaths.DASHBOARD_ROUTE
     },
     {
       name: 'Organisation Chart',
       logo: this.orgChartIcon,
+      routerLink : RoutePaths.DASHBOARD_ROUTE
     },
     {
       name: 'My timeline',
       logo: this.myTimeLineIcon,
+      routerLink : RoutePaths.DASHBOARD_ROUTE
     },
     {
       name: 'Leaves',
       logo: this.leavesIcon,
+      routerLink : RoutePaths.LEAVE_ROUTE
     },
     {
       name: 'My tasks',
       logo: this.myTasksIcon,
+      routerLink : RoutePaths.DASHBOARD_ROUTE
     },
     {
       name: 'My assets',
       logo: this.myAssetsIcon,
+      routerLink : RoutePaths.DASHBOARD_ROUTE
     },
     {
       name: '1:1 Meetings',
       logo: this.meetingsIcon,
+      routerLink : RoutePaths.DASHBOARD_ROUTE
     },
   ];
 

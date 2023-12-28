@@ -13,13 +13,15 @@ import { SessionData } from './core/models/session-data.interface';
 export class AppComponent {
   ACCESS_TOKEN_REFRESH_TIME = environment.ACCESS_TOKEN_REFRESH_TIME;
   title = 'mManagement';
+  isLoggedIn:boolean = true;
 
   constructor(private httpService : HttpService,private localStorageService: LocalStorageService){
     this.startBackgroundTask();
+    this.isLoggedIn = this.localStorageService.isUserLoggedIn();
   }
 
   private startBackgroundTask(): void {
-    if(!this.localStorageService.isUserLoggedIn()){
+    if(this.localStorageService.isUserLoggedIn()){
       setInterval(()=>{
         let sessionData : SessionData = this.localStorageService.getSessionData();
         let httpHeaders = new HttpHeaders({
@@ -27,11 +29,12 @@ export class AppComponent {
         })
         this.httpService.post('login/refreshToken',{},httpHeaders).subscribe(
           (response)=>{
-            const token:string = response.data.token;
+            const token:string = response.data.accessToken;
             sessionData.userData.accessToken = token;
             sessionData.token = token;
             this.localStorageService.setSessionData(sessionData);
           },(error)=>{
+            console.log(error);
             localStorage.clear();
           }
         )

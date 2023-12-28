@@ -18,6 +18,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { EditorComponent } from './components/editor/editor.component';
 import { HttpService } from './core/utils/http-service/http.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { HttpService } from './core/utils/http-service/http.service';
     HttpClientModule,
     NgxWigModule
   ],
-  providers: [HttpService],
+  providers: [HttpService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
