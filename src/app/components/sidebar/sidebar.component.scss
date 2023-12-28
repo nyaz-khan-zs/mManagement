@@ -1,0 +1,45 @@
+.sidebar-container {
+  padding: 10px;
+  .navigation-button-container {
+    border-radius: 10px;
+    color: #2d68fe;
+
+    .tab {
+      align-items: center;
+      border: none;
+      color: #324054;
+      cursor: pointer;
+      display: flex;
+      gap: 10px;
+      justify-content: flex-start;
+      margin: 30px 10px 30px 10px;
+      padding: 10px;
+    }
+    .select {
+      background-color: #5c8aff14;
+
+      span {
+        color: #2d68fe;
+      }
+
+      img {
+        filter: invert(42%) sepia(93%) saturate(802%) hue-rotate(200deg)
+          brightness(100%) contrast(119%);
+      }
+    }
+
+    span {
+      font-size: 16px;
+    }
+  }
+
+  .logo {
+    margin: 30px 10px;
+    // padding: 10px;
+  }
+
+  .hide {
+    // width: 60px;
+    display: none;
+  }
+}
