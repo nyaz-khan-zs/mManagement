@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GraphData } from 'src/app/interface/pieData';
+import { GraphData } from 'src/app/core/models/pieData';
 
 @Component({
   selector: 'app-pie-chart',

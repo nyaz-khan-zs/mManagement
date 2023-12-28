@@ -1,0 +1,73 @@
+body{
+    margin:0px;
+    padding:0px;
+}
+
+.editor-box{
+    display: block;
+    width: 100%;
+}
+
+.project-menu {
+    margin: 0px;
+    overflow-x:scroll;  
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.project-link{
+    background-color: white;
+    padding: 10px 10px;
+    font-size: smaller;
+    font-family: inherit;
+    font-weight: 400;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+
+.circle-badge {
+    width: 18px;
+    height: 18px;
+    background-color: #FF9191;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px; 
+    margin-right: 5px; 
+    display: inline-block; 
+    position: relative;
+}
+
+.exclamation-mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.selected-project{
+    color : blue;
+    border-bottom: 2px solid blue;
+}
+
+.project-menu>span:hover{
+    cursor: pointer;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid #0f4dd4;
+    border-radius: 5px;
+    color: #f2f4f5;
+    background-color: #0f4dd4;
+}

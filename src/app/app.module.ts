@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxWigModule } from 'ngx-wig';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +14,10 @@ import { LeaveSummaryComponent } from './components/leave-summary/leave-summary.
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LoginComponent } from './pages/login/login.component';
+import { EditorComponent } from './components/editor/editor.component';
+import { HttpService } from './core/utils/http-service/http.service';
 
 @NgModule({
   declarations: [
@@ -24,13 +30,18 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     LeaveSummaryComponent,
     PieChartComponent,
     DatePickerComponent,
-    SidebarComponent
+    SidebarComponent,
+    DashboardComponent,
+    LoginComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    NgxWigModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

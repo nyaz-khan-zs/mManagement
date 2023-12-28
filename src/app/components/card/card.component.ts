@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LeaveCardDetail } from 'src/app/interface/leaveCardDetail';
+import { LeaveCardDetail } from 'src/app/core/models/leaveCardDetail';
 
 @Component({
   selector: 'app-card',

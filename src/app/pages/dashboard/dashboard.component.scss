@@ -1,0 +1,365 @@
+.section-title {
+    text-align: left;
+    color: black;
+    font-size: 16px;
+}
+
+.reportees-section-title {
+    text-align: left;
+    color: black;
+    font-size: 16px;
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.section-content {
+    display: flex;
+    margin-top: 10px;
+}
+
+section {
+    margin: 5px 5px 30px 20px;
+    overflow-x: scroll;
+}
+
+.link {
+    text-decoration: none;
+    border: none;
+    color: blue !important;
+    cursor: pointer;
+}
+
+/*
+  Project list section
+*/
+
+.project-card {
+    height: calc(10vh+10px);
+    color: white;
+    background-color: #fff;
+    display: grid;
+    grid-template-rows: auto auto;
+    border: 0px solid transparent;
+    border-radius: 5px;
+    padding: 7px;
+    margin-right: 5px;
+}
+
+.project-card:nth-child(4n+4) {
+    background-color: rgb(255, 145, 145);
+}
+
+.project-card:nth-child(4n+1) {
+    background-color: rgb(92, 138, 255);
+}
+
+.project-card:nth-child(4n+2) {
+    background-color: rgb(154, 140, 255);
+}
+
+.project-card:nth-child(4n+3) {
+    background-color: rgb(119, 220, 152);
+}
+
+.project-card-size {
+    vertical-align: baseline;
+    height: 3vh;
+}
+
+.project-card-title {
+    display: flex;
+    height: 7vh;
+    justify-content: space-between;
+}
+
+.title {
+    justify-content: flex-start;
+    width: max-content;
+    min-width: 250px;
+}
+
+.isMember {
+    justify-content: flex-end;
+    height: 13px;
+    width: 13px;
+    border: 0px solid white;
+    background-color: white;
+    border-radius: 50%;
+    margin-left: 4px;
+}
+
+@media only screen and (max-width : 900px) {
+    .section-title {
+        text-align: left;
+        color: black;
+        font-size: 13px;
+    }
+
+    .reportees-section-title {
+        text-align: left;
+        color: black;
+        font-size: 13px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .project-card {
+        height: calc(10vh+10px);
+        color: white;
+        background-color: #fff;
+        display: grid;
+        grid-template-rows: auto auto;
+        border: 0px solid transparent;
+        border-radius: 5px;
+        padding: 7px;
+        margin-right: 5px
+    }
+
+    .project-card-title {
+        display: flex;
+        height: 7vh;
+        justify-content: space-between;
+    }
+
+    .isMember {
+        justify-content: flex-end;
+        height: 10px;
+        width: 10px;
+        border: 0px solid white;
+        background-color: white;
+        border-radius: 50%;
+        margin-left: 4px;
+    }
+
+    .title {
+        justify-content: flex-start;
+        width: max-content;
+        min-width: 150px;
+        font-size: small;
+    }
+}
+
+
+/* 
+Direct reportees section
+*/
+
+.direct-reportee-card {
+    display: flex;
+    height: 100px;
+    border: 0px solid transparent;
+    border-radius: 4px;
+    width: max-content;
+    background-color: #3240540a;
+    margin-right: 10px
+}
+
+.direct-reportee-card-image {
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.direct-reportee-card-content {
+    width: max-content;
+    min-width: 150px;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    margin: 10px;
+}
+
+.direct-reportee-card-image img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+@media only screen and (max-width : 900px) {
+    .direct-reportee-card {
+        display: flex;
+        height: 80px;
+        border: 0px solid transparent;
+        border-radius: 4px;
+        width: max-content;
+        background-color: #3240540a;
+        margin-right: 10px
+    }
+
+    .direct-reportee-card-image {
+        width: 80px;
+        height: 80px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .direct-reportee-card-content {
+        font-size: small;
+        width: max-content;
+        min-width: 80px;
+        display: grid;
+        grid-template-rows: auto auto auto;
+        margin: 10px;
+    }
+
+    .direct-reportee-card-image img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        border-radius: 50%;
+    }
+}
+
+/*
+ Update section
+*/
+.subordinate-stats-title {
+    text-align: left;
+    color: black;
+    font-size: 16px;
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.subordinate-count {
+    width: 20px;
+    height: 20px;
+    background-color: #242c370a;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.subordinate-count-text {
+    position: absolute;
+    visibility: hidden;
+    width: 100px;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    font-size: small;
+    top: 25px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.subordinate-count:hover .subordinate-count-text {
+    visibility: visible;
+}
+
+.subordinate-stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.update-section-box {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    column-gap: 15px;
+}
+
+.update-section-border {
+    border: 15px solid transparent;
+    border-radius: 10px;
+    overflow-x: hidden;
+    background-color: #3240540a;
+}
+
+.update-section-input-box {
+    grid-column: auto/span 5;
+    display: grid;
+    grid-template-rows: 40px 413px;
+}
+
+.subordinate-stats-section {
+    grid-column: auto/span 2;
+    display: grid;
+    grid-template-rows: 40px 413px;
+    overflow-y: scroll;
+}
+
+.subordinate-stats-employee{
+    height:40px;
+    width:calc(100%-30px);
+    padding: 10px;
+    vertical-align: middle;
+    display : flex;
+    margin:5px ;
+    border : 2px solid transparent;
+    gap: 10px;
+    border-radius: 4px;
+    background-color: #5c8aff26;
+}
+
+.subordinate-stats-employee-name{
+    font-size: 16px;
+    overflow: hidden;
+    text-align: start;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-word;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;    
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.subordinate-stats-employee-name:hover{
+    color: blueviolet;
+    text-decoration: underline;
+}
+
+.subordinate-stats-employee img{
+    height : 40px;
+    width: 40px;
+    object-fit: contain;
+    border: 0px solid transparent;
+    border-radius: 50%;
+}
+
+.no-subordinate-data{
+    border: 15px solid transparent;
+    border-radius: 10px;
+    overflow-x: hidden;
+    background-color: #3240540a;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+@media only screen and (max-width : 900px) {
+    .update-section-box {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        column-gap: 15px;
+        row-gap: 10px;
+    }
+
+    .update-section-input-box {
+        grid-column: auto/span 9;
+        display: grid;
+        grid-template-rows: 40px 413px;
+        row-gap: 10px;
+    }
+
+    .subordinate-stats-section {
+        grid-column: auto/span 9;
+        display: grid;
+        grid-template-rows: 40px 413px;
+        overflow-y: scroll;
+    }
+}

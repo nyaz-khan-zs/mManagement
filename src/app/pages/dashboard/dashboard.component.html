@@ -1,0 +1,93 @@
+<div>
+    <section>
+        <span class="section-title">Projects @{{organisation.name}}</span>
+        <div class="section-content">
+            <div class="project-card" *ngFor="let project of projects">
+                <div class="project-card-title">
+                    <span class="title">{{project.name}}</span>
+                    <span *ngIf="project.member" class="isMember"></span>
+                </div>
+                <div class="project-card-size">
+                    <span>{{project.teamSize}} members</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="reportees-section-title">
+            <span>Direct Reportees</span>
+            <span class="link">View Direct Reportees Updates</span>
+        </div>
+        <div class="section-content">
+            <div *ngFor="let reportee of directReportees" class="direct-reportee-card">
+                <div class="direct-reportee-card-image">
+                    <img src={{reportee.profileUrl}} alt={{reportee.name}} />
+                </div>
+                <div class="direct-reportee-card-content">
+                    <span>{{reportee.name}}</span>
+                    <span>{{reportee.designation}}</span>
+                    <span class="link">View Timeline</span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="update-section-box">
+            <div class="update-section-input-box">
+                <span class="section-title">My Updates For Today</span>
+                <editor [updates]="update.updates" class="update-section-border"></editor>
+            </div>
+            <div class="subordinate-stats-section">
+                <span class="subordinate-stats">
+                    <span class="subordinate-stats-title">On Leave - {{subordinateLeavesDate.getDay()}}
+                        {{subordinateLeavesDate.getMonthName()}}
+                        <span class="subordinate-count" >
+                            <span class="subordinate-count-text">Direct Reportees</span>
+                            {{subordinateLeaves.directReportees}}
+                        </span>
+                        <span class="subordinate-count">
+                            <span class="subordinate-count-text">Indirect Reportees</span>
+                            {{subordinateLeaves.indirectReportees}}</span>
+                    </span>
+                    <span>calendar</span>
+                </span>
+                <div class="update-section-border" *ngIf="subordinateLeaves.directReportees + subordinateLeaves.indirectReportees > 0">
+                        <span *ngFor="let employee of getUnionOfArray(subordinateLeaves.directReporteesDetails,
+                        subordinateLeaves.indirectReporteesDetails)" class="subordinate-stats-employee">
+                            <img src={{employee.profileUrl}} alt={{employee.name}} />
+                            <span class="subordinate-stats-employee-name">{{employee.name}}</span>
+                        </span>
+                </div>
+                <div *ngIf="subordinateLeaves.directReportees + subordinateLeaves.indirectReportees <= 0" class="no-subordinate-data">
+                    No one is on leave
+                </div>
+            </div>
+            <div class="subordinate-stats-section">
+                <span class="subordinate-stats">
+                    <span class="subordinate-stats-title">
+                        No updates - {{subordinateNoUpdateDate.getDay()}} {{subordinateNoUpdateDate.getMonthName()}}
+                        <span class="subordinate-count">
+                            <span class="subordinate-count-text">Direct Reportees</span>
+                            {{subordinateLeaves.directReportees}}</span>
+                        <span class="subordinate-count">
+                            <span class="subordinate-count-text">Indirect Reportees</span>
+                            {{subordinateLeaves.indirectReportees}}</span>
+                    </span>
+                    <span>calendar</span>
+                </span>
+                <div class="update-section-border" *ngIf="subordinateNoUpdates.directReportees + subordinateNoUpdates.indirectReportees > 0">
+                        <span *ngFor="let employee of 
+                        getUnionOfArray(subordinateNoUpdates.directReporteesDetails,subordinateNoUpdates.indirectReporteesDetails)"
+                        class="subordinate-stats-employee" >
+                            <img src={{employee.profileUrl}} alt={{employee.name}} />
+                            <p class="subordinate-stats-employee-name">{{employee.name}}</p>
+                        </span>
+                </div>
+                <div *ngIf="subordinateNoUpdates.directReportees + subordinateNoUpdates.indirectReportees <= 0" class="no-subordinate-data">
+                    Everyone has updated
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

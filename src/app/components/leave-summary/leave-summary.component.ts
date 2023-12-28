@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LeaveSummary } from 'src/app/interface/LeaveSummary';
+import { LeaveSummary } from 'src/app/core/models/leaveSummary';
 
 @Component({
   selector: 'app-leave-summary',

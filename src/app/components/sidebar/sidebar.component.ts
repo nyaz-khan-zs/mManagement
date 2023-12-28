@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { SideBarData } from 'src/app/interface/sidebarData';
+import { SideBarData } from 'src/app/core/models/sidebarData';
 
 @Component({
   selector: 'app-sidebar',

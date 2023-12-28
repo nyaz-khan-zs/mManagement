@@ -1,0 +1,17 @@
+<div class="editor-box">
+    <div class="project-menu">
+        <span *ngFor="let update of updates">
+            <span class="project-link" (click)="onProjectSelect(update.project)" 
+            [ngClass]="{'selected-project': update.project === selectedUpdate.project}">
+                <div class="circle-badge" *ngIf="update.update===null">
+                    <div class="exclamation-mark">!</div>
+                </div>
+                {{ update.project === null ? nonProjectUpdate : update.project.name}}
+            </span>
+        </span>
+    </div>
+    <div style="position: relative;">
+        <ngx-wig [(content)]="htmlContent"></ngx-wig>
+        <button style="position: absolute; z-index: 3; bottom: 15px; right: 15px;" (click)="addUpdate()">Update</button>
+    </div>    
+</div>
