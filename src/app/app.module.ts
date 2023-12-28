@@ -11,6 +11,7 @@ import { CardComponent } from './components/card/card.component';
 import { LeaveSummaryComponent } from './components/leave-summary/leave-summary.component';
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
     CardComponent,
     LeaveSummaryComponent,
     PieChartComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
