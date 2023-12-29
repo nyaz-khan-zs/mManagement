@@ -50,7 +50,12 @@
                             <span class="subordinate-count-text">Indirect Reportees</span>
                             {{subordinateLeaves.indirectReportees}}</span>
                     </span>
-                    <span>calendar</span>
+                    <span>
+                        <span class="datepicker-toggle">
+                            <span class="datepicker-toggle-button"></span>
+                            <input type="date" class="datepicker-input" [(ngModel)]="selectedLeaveDate" (ngModelChange)="updateSubordinateLeave()" />
+                          </span>
+                    </span>
                 </span>
                 <div class="update-section-border" *ngIf="subordinateLeaves.directReportees + subordinateLeaves.indirectReportees > 0">
                         <span *ngFor="let employee of getUnionOfArray(subordinateLeaves.directReporteesDetails,
@@ -75,7 +80,12 @@
                             <span class="subordinate-count-text">Indirect Reportees</span>
                             {{subordinateNoUpdates.indirectReportees}}</span>
                     </span>
-                    <span>calendar</span>
+                    <span>
+                        <span class="datepicker-toggle">
+                            <span class="datepicker-toggle-button"></span>
+                            <input type="date" class="datepicker-input" [(ngModel)]="selectedNoUpdatesDate" (ngModelChange)="updateSubordinateNoUpdate()">
+                          </span>
+                    </span>
                 </span>
                 <div class="update-section-border" *ngIf="subordinateNoUpdates.directReportees + subordinateNoUpdates.indirectReportees > 0">
                         <span *ngFor="let employee of 

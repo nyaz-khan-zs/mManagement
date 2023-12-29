@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxWigModule } from 'ngx-wig';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,7 +41,8 @@ import { AuthGuard } from './auth.guard';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxWigModule
+    NgxWigModule,
+    FormsModule
   ],
   providers: [HttpService,AuthGuard],
   bootstrap: [AppComponent]

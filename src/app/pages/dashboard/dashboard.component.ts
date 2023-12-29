@@ -8,7 +8,7 @@ import { LocalDate } from 'src/app/core/utils/local-date/local-date';
 import { EmployeeService } from 'src/app/service/employee/employee.service';
 import { OrganisationService } from 'src/app/service/organisation/organisation.service';
 import { ProjectService } from 'src/app/service/project/project.service';
-import { UpdateService } from 'src/app/service/update/update.service';
+
 import { LocalStorageService } from 'src/app/core/utils/local-storage/local-storage.service';
 import { SessionData } from 'src/app/core/models/session-data.interface';
 
@@ -26,7 +26,9 @@ export class DashboardComponent implements OnInit {
   subordinateLeaves !: SubordinatesData;
   subordinateNoUpdates !: SubordinatesData;
   subordinateLeavesDate: LocalDate = new LocalDate();
+  selectedLeaveDate : string = this.subordinateLeavesDate.toLocale();
   subordinateNoUpdateDate: LocalDate = new LocalDate();
+  selectedNoUpdatesDate: string = this.subordinateNoUpdateDate.toLocale();
   localDate: LocalDate = new LocalDate();
   sessionData!: SessionData
 
@@ -62,6 +64,26 @@ export class DashboardComponent implements OnInit {
       next: (value: SubordinatesData) => { this.subordinateNoUpdates = value },
       error: (error) => { console.log(error) }
     })
+  }
+
+  updateSubordinateLeave():void{
+    this.subordinateLeavesDate = new LocalDate(this.selectedLeaveDate);
+    this.employeeService.getSubordinateLeaves(this.subordinateLeavesDate).subscribe({
+      next: (value: SubordinatesData) => { this.subordinateLeaves = value },
+      error: (error) => { console.log(error) }
+    })
+  }
+
+  updateSubordinateNoUpdate():void{
+    this.subordinateNoUpdateDate = new LocalDate(this.selectedNoUpdatesDate);
+    this.employeeService.getSubordinateNoUpdates(this.subordinateNoUpdateDate).subscribe({
+      next: (value: SubordinatesData) => { this.subordinateNoUpdates = value },
+      error: (error) => { console.log(error) }
+    })
+  }
+
+  toLocaleDate(date : LocalDate) : string{
+    return date.toLocale();
   }
 
   getUnionOfArray(array1: Employee[], array2: Employee[]): Employee[] {
