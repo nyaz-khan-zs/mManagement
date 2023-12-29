@@ -1,0 +1,38 @@
+{
+    "data": [
+      {
+        "id": 990,
+        "name": "Shruti Khare",
+        "location": null,
+        "email": "shruti.khare@zopsmart.com",
+        "designation": "Scrum Master",
+        "joiningDate": null,
+        "reportingTo": 956,
+        "employeeId": null,
+        "profileUrl": "https://lh3.googleusercontent.com/a/ACg8ocK7q30bDgwiqx399Y3yOD-44oTucYPzv7q68w3-46j5ZbM=s96-c",
+        "viewTimeline": true,
+        "isActive": true,
+        "removalDate": null,
+        "exempted": false,
+        "officeLocation": null,
+        "githubUsername": null,
+        "gender": "FEMALE",
+        "numberOfSubOrdinates": 3
+      },
+      {
+        "id": 956,
+        "name": "Vijoy Bardhan Singh",
+        "employeeId": null,
+        "email": "vijoybardhan.singh@zopsmart.com",
+        "joiningDate": null,
+        "designation": null,
+        "location": null,
+        "timezone": "Asia/Calcutta",
+        "profileUrl": "https://lh3.googleusercontent.com/a/ACg8ocJL9EhOkbiZsHecgON8BJYniUDUF9z7wgdKuV62KJMP2g=s96-c",
+        "isActive": true,
+        "removalDate": null,
+        "currentlyExempted": false,
+        "gender": "MALE"
+      }
+    ]
+  }

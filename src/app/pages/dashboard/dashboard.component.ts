@@ -7,6 +7,10 @@ import { SubordinatesData } from 'src/app/core/models/subordinates-data.interfac
 import { LocalDate } from 'src/app/core/utils/local-date/local-date';
 import { EmployeeService } from 'src/app/service/employee/employee.service';
 import { OrganisationService } from 'src/app/service/organisation/organisation.service';
+import { ProjectService } from 'src/app/service/project/project.service';
+import { UpdateService } from 'src/app/service/update/update.service';
+import { LocalStorageService } from 'src/app/core/utils/local-storage/local-storage.service';
+import { SessionData } from 'src/app/core/models/session-data.interface';
 
 @Component({
   selector: 'dashboard',
@@ -14,361 +18,6 @@ import { OrganisationService } from 'src/app/service/organisation/organisation.s
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  organisationJsonData: any = {
-    "data": {
-      "id": "8a948172820c107b01820c6679ee0001",
-      "name": "Staging Eazyupdates",
-      "description": "ZopSmart is cutting edge retail technology company that provides you all the tools to build your e-commerce business.",
-      "location": "string",
-      "logo": "",
-      "domain": "zopsmart.com",
-      "updateSpan": 4,
-      "tasc": true,
-      "assets": true,
-      "emailNotification": true,
-      "addUpdate": true,
-      "emailNotificationSpan": 2,
-      "meeting": true,
-      "meetingSpan": 7,
-      "loginTime": 1703078202,
-      "tagOverride": true,
-      "githubSupport": true,
-      "isActive": true,
-      "isExempted": true,
-      "dues": 0.0,
-      "plan": {
-        "id": 1,
-        "cost": 1.0,
-        "freeUsers": 5,
-        "dueDaysSpan": 30
-      }
-    }
-  };
-
-  reporteesJsonData: any = {
-    "data": [
-      {
-        "id": 990,
-        "name": "Shruti Khare",
-        "location": null,
-        "email": "shruti.khare@zopsmart.com",
-        "designation": "Scrum Master",
-        "joiningDate": null,
-        "reportingTo": 956,
-        "employeeId": null,
-        "profileUrl": "https://lh3.googleusercontent.com/a/ACg8ocK7q30bDgwiqx399Y3yOD-44oTucYPzv7q68w3-46j5ZbM=s96-c",
-        "viewTimeline": true,
-        "isActive": true,
-        "removalDate": null,
-        "exempted": false,
-        "officeLocation": null,
-        "githubUsername": null,
-        "gender": "FEMALE",
-        "numberOfSubOrdinates": 3
-      },
-      {
-        "id": 956,
-        "name": "Vijoy Bardhan Singh",
-        "employeeId": null,
-        "email": "vijoybardhan.singh@zopsmart.com",
-        "joiningDate": null,
-        "designation": null,
-        "location": null,
-        "timezone": "Asia/Calcutta",
-        "profileUrl": "https://lh3.googleusercontent.com/a/ACg8ocJL9EhOkbiZsHecgON8BJYniUDUF9z7wgdKuV62KJMP2g=s96-c",
-        "isActive": true,
-        "removalDate": null,
-        "currentlyExempted": false,
-        "gender": "MALE"
-      }
-    ]
-  };
-
-  projectJsonData: any = {
-    "data": [
-      {
-        "id": 459,
-        "name": "Shruti's Project",
-        "teamSize": 5,
-        "taskTeamId": 6377,
-        "slug": "shrutis-project",
-        "member": true,
-        "parentProjectId": null,
-        "numberOfSubProjects": 0
-      },
-      {
-        "id": 461,
-        "name": "MI PALTAN cdcdcd",
-        "teamSize": 0,
-        "taskTeamId": 3134,
-        "slug": "mi-paltan",
-        "member": true,
-        "parentProjectId": null,
-        "numberOfSubProjects": 0
-      },
-      {
-        "id": 502,
-        "name": "MentorPro",
-        "teamSize": 2,
-        "taskTeamId": 6384,
-        "slug": "mentorpro",
-        "member": false,
-        "parentProjectId": null,
-        "numberOfSubProjects": 0
-      },
-      {
-        "id": 528,
-        "name": "Backend Team (Java, SpringBoot)",
-        "teamSize": 6,
-        "taskTeamId": 6404,
-        "slug": "backend-team",
-        "member": false,
-        "parentProjectId": null,
-        "numberOfSubProjects": 0
-      },
-      {
-        "id": 555,
-        "name": "Blue Sky Innovation project ",
-        "teamSize": 24,
-        "taskTeamId": 6430,
-        "slug": "blue-sky-innovation-project",
-        "member": false,
-        "parentProjectId": null,
-        "numberOfSubProjects": 0
-      },
-      {
-        "id": 577,
-        "name": "Java Team",
-        "teamSize": 3,
-        "taskTeamId": 6654,
-        "slug": "satgeeu-java",
-        "member": false,
-        "parentProjectId": null,
-        "numberOfSubProjects": 0
-      },
-      {
-        "id": 584,
-        "name": "Backend Team (Java, SpringBoot)",
-        "teamSize": 6,
-        "taskTeamId": 6404,
-        "slug": "backend-team",
-        "member": false,
-        "parentProjectId": null,
-        "numberOfSubProjects": 0
-      },
-      {
-        "id": 585,
-        "name": "Blue Sky Innovation project Blue Sky Innovation project",
-        "teamSize": 24,
-        "taskTeamId": 6430,
-        "slug": "blue-sky-innovation-project",
-        "member": false,
-        "parentProjectId": null,
-        "numberOfSubProjects": 0
-      },
-      {
-        "id": 587,
-        "name": "Java Team",
-        "teamSize": 3,
-        "taskTeamId": 6654,
-        "slug": "satgeeu-java",
-        "member": false,
-        "parentProjectId": null,
-        "numberOfSubProjects": 0
-      }
-    ]
-  };
-
-  updateJsonData: any = {
-    "data": [
-      {
-        "date": "2023-12-25",
-        "leaves": null,
-        "holiday": {
-          "reason": "Christmas"
-        },
-        "meeting": [
-          {
-            "id": 1370,
-            "manager": {
-              "id": 956,
-              "name": "Vijoy Bardhan Singh",
-              "employeeId": null,
-              "email": "vijoybardhan.singh@zopsmart.com",
-              "joiningDate": null,
-              "designation": null,
-              "location": null,
-              "timezone": "Asia/Calcutta",
-              "profileUrl": "https://lh3.googleusercontent.com/a/ACg8ocJL9EhOkbiZsHecgON8BJYniUDUF9z7wgdKuV62KJMP2g=s96-c",
-              "isActive": true,
-              "removalDate": null,
-              "currentlyExempted": false,
-              "gender": "MALE"
-            },
-            "employee": {
-              "id": 990,
-              "name": "Shruti Khare",
-              "employeeId": null,
-              "email": "shruti.khare@zopsmart.com",
-              "joiningDate": null,
-              "designation": "Scrum Master",
-              "location": null,
-              "timezone": "Asia/Calcutta",
-              "profileUrl": "https://lh3.googleusercontent.com/a/ACg8ocK7q30bDgwiqx399Y3yOD-44oTucYPzv7q68w3-46j5ZbM=s96-c",
-              "isActive": true,
-              "removalDate": null,
-              "currentlyExempted": false,
-              "gender": "FEMALE"
-            },
-            "remarks": "**Meeting :**\n\n1.  One day meeting\n2.  Two day meeting",
-            "isPrivate": false,
-            "date": "2023-12-25"
-          }
-        ],
-        "isExempted": false,
-        "officeLocation": "HSR",
-        "updates": [
-          {
-            "project": {
-              "id": 528,
-              "name": "Backend Team (Java, SpringBoot)",
-              "description": "Java, SpringBoot.. etc",
-              "teamSize": 6,
-              "startDate": "2023-10-12",
-              "completionDate": null,
-              "imageUrl": "",
-              "visibility": "ORGANISATION",
-              "taskTeamId": 6404,
-              "slug": "backend-team",
-              "googleChatSupport": false,
-              "githubSupport": false,
-              "createdAt": null,
-              "active": true
-            },
-            "update": {
-              id: 1118,
-              remarks: "<h1>Hello Bro</h1>",
-              type: "PROJECT"
-            }
-          },
-          {
-            "project": {
-              "id": 555,
-              "name": "Blue Sky Innovation project ",
-              "description": "fjrhefjkrenfkjrenf fvfv It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-              "teamSize": 24,
-              "startDate": "2022-04-01",
-              "completionDate": null,
-              "imageUrl": "https://storage.googleapis.com/zopping-staging-uploads/2497/images/originals/20231020/imagefile-20231020-074218.webp",
-              "visibility": "ORGANISATION",
-              "taskTeamId": 6430,
-              "slug": "blue-sky-innovation-project",
-              "googleChatSupport": true,
-              "githubSupport": false,
-              "createdAt": null,
-              "active": true
-            },
-            "update": null
-          },
-          {
-            "project": {
-              "id": 577,
-              "name": "Java Team",
-              "description": "TBT",
-              "teamSize": 3,
-              "startDate": "2023-11-27",
-              "completionDate": null,
-              "imageUrl": "",
-              "visibility": "ORGANISATION",
-              "taskTeamId": 6654,
-              "slug": "satgeeu-java",
-              "googleChatSupport": false,
-              "githubSupport": false,
-              "createdAt": null,
-              "active": true
-            },
-            "update": null
-          },
-          {
-            "project": {
-              "id": 587,
-              "name": "Java Team Overflow test",
-              "description": "TBT",
-              "teamSize": 3,
-              "startDate": "2023-11-27",
-              "completionDate": null,
-              "imageUrl": "",
-              "visibility": "ORGANISATION",
-              "taskTeamId": 6654,
-              "slug": "satgeeu-java",
-              "googleChatSupport": false,
-              "githubSupport": false,
-              "createdAt": null,
-              "active": true
-            },
-            "update": null
-          },
-          {
-            "project": {
-              "id": 587,
-              "name": "Java Team overflow test and content-size",
-              "description": "TBT",
-              "teamSize": 3,
-              "startDate": "2023-11-27",
-              "completionDate": null,
-              "imageUrl": "",
-              "visibility": "ORGANISATION",
-              "taskTeamId": 6654,
-              "slug": "satgeeu-java",
-              "googleChatSupport": false,
-              "githubSupport": false,
-              "createdAt": null,
-              "active": true
-            },
-            "update": null
-          }
-        ],
-        "isEditable": true
-      }
-    ]
-  };
-
-  subOrdinateLeavesJsonData: any = {
-    "data": {
-      "directReportees": 1,
-      "indirectReportees": 0,
-      "directReporteesDetails": [
-        {
-          "id": 990,
-          "name": "Shruti Khare ",
-          "location": null,
-          "email": "shruti.khare@zopsmart.com",
-          "designation": "Scrum Master",
-          "joiningDate": null,
-          "reportingTo": 956,
-          "employeeId": null,
-          "profileUrl": "https://lh3.googleusercontent.com/a/ACg8ocK7q30bDgwiqx399Y3yOD-44oTucYPzv7q68w3-46j5ZbM=s96-c",
-          "viewTimeline": true,
-          "isActive": true,
-          "removalDate": null,
-          "exempted": false,
-          "officeLocation": "Noida",
-          "githubUsername": null,
-          "gender": "FEMALE"
-        }
-      ],
-      "indirectReporteesDetails": []
-    }
-  }
-
-  subOrdinateNoUpdatesData:any = {
-    "data": {
-        "directReportees": 0,
-        "indirectReportees": 0,
-        "directReporteesDetails": [],
-        "indirectReporteesDetails": []
-    }
-}
 
   projects: Project[] = [];
   organisation !: Organisation;
@@ -376,90 +25,47 @@ export class DashboardComponent implements OnInit {
   update !: Timeline;
   subordinateLeaves !: SubordinatesData;
   subordinateNoUpdates !: SubordinatesData;
-  subordinateLeavesDate : LocalDate = new LocalDate();
-  subordinateNoUpdateDate : LocalDate = new LocalDate();
-  localDate : Date = new LocalDate();
+  subordinateLeavesDate: LocalDate = new LocalDate();
+  subordinateNoUpdateDate: LocalDate = new LocalDate();
+  localDate: LocalDate = new LocalDate();
+  sessionData!: SessionData
 
-  constructor(private employeeService : EmployeeService,private organisationService: OrganisationService) { }
+  constructor(private employeeService: EmployeeService, private organisationService: OrganisationService,
+     private projectService: ProjectService, private localStorageService: LocalStorageService) { 
+      this.sessionData = localStorageService.getSessionData();
+     }
 
   ngOnInit(): void {
-    this.projects = this.projectJsonData.data.map((projectData: any) => {
-      return {
-        id: projectData.id,
-        name: projectData.name,
-        teamSize: projectData.teamSize,
-        taskTeamId: projectData.taskTeamId,
-        slug: projectData.slug,
-        member: projectData.member,
-        parentProjectId: projectData.parentProjectId,
-        numberOfSubProjects: projectData.numberOfSubProjects,
-      };
-    });
+    this.projectService.getAllProjects().subscribe({
+      next: (value: Project[]) => { this.projects = value },
+      error: (error) => { console.log(error); }
+    })
     this.employeeService.getReportees().subscribe({
-      next : (value : Employee[]) => {this.directReportees = value},
-      error : (error)=>{console.log(error);}
+      next: (value: Employee[]) => { this.directReportees = value },
+      error: (error) => { console.log(error); }
     });
-    this.update = this.getUpdateDataFromJson(this.updateJsonData);
+    this.employeeService.getEmployeeTimeline(parseInt(this.sessionData.userData.employeeId),this.localDate,this.localDate).subscribe({
+      next : (value : Timeline[])=>{
+          this.update = value[0];
+      },
+      error : (error)=>{console.log(error);}
+    })
     this.organisationService.getOrganisation().subscribe({
-      next : (value : Organisation)=>{this.organisation = value},
-      error : (error)=>{console.log(error)}
+      next: (value: Organisation) => { this.organisation = value },
+      error: (error) => { console.log(error) }
     })
-    this.employeeService.getSubordinateLeaves(new LocalDate()).subscribe({
-      next : (value : SubordinatesData) => {this.subordinateLeaves = value},
-      error : (error) => {console.log(error)}
+    this.employeeService.getSubordinateLeaves(this.subordinateLeavesDate).subscribe({
+      next: (value: SubordinatesData) => { this.subordinateLeaves = value },
+      error: (error) => { console.log(error) }
     })
-    this.employeeService.getSubordinateNoUpdates(new LocalDate()).subscribe({
-      next : (value : SubordinatesData) => {this.subordinateNoUpdates = value},
-      error : (error) => {console.log(error)}
+    this.employeeService.getSubordinateNoUpdates(this.subordinateNoUpdateDate).subscribe({
+      next: (value: SubordinatesData) => { this.subordinateNoUpdates = value },
+      error: (error) => { console.log(error) }
     })
   }
 
-  getUpdateDataFromJson(jsonData: any): Timeline {
-    const data: any = jsonData.data[0];
-    const timeline: Timeline = {
-      date: data.date,
-      leaves: data.leaves?.map((leave: any) => {
-        return {
-          leave: leave.leave,
-          leaveType: leave.leaveType,
-          reason: leave.reason,
-          status: leave.status
-        }
-      }),
-      meeting: data.meeting?.map((m: any) => {
-        return {
-          id: m.id,
-          manager: m.manager,
-          employee: m.employee,
-          remarks: m.remarks,
-          isPrivate: m.isPrivate,
-          date: m.date
-        }
-      }),
-      holiday: data.holiday,
-      isExempted: data.isExempted,
-      officeLocation: data.officeLocation,
-      isEditable: data.isEditable,
-      updates: data.updates.map((update: any) => {
-        return {
-          date: data.date,
-          update: update.update,
-          project: {
-            id: update.project.id,
-            member: true,
-            name: update.project.name,
-            slug: update.project.slug,
-            teamSize: update.project.teamSize,
-            taskTeamId: update.project.taskTeamId
-          },
-        }
-      })
-    }
-    return timeline;
-  }
-
-  getUnionOfArray(array1 : Employee[], array2 : Employee[]) : Employee[]{
-    return [...array1,...array2];
+  getUnionOfArray(array1: Employee[], array2: Employee[]): Employee[] {
+    return [...array1, ...array2];
   }
 
 }

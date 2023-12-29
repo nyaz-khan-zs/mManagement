@@ -1,0 +1,30 @@
+{
+    "data": {
+      "id": "8a948172820c107b01820c6679ee0001",
+      "name": "Staging Eazyupdates",
+      "description": "ZopSmart is cutting edge retail technology company that provides you all the tools to build your e-commerce business.",
+      "location": "string",
+      "logo": "",
+      "domain": "zopsmart.com",
+      "updateSpan": 4,
+      "tasc": true,
+      "assets": true,
+      "emailNotification": true,
+      "addUpdate": true,
+      "emailNotificationSpan": 2,
+      "meeting": true,
+      "meetingSpan": 7,
+      "loginTime": 1703078202,
+      "tagOverride": true,
+      "githubSupport": true,
+      "isActive": true,
+      "isExempted": true,
+      "dues": 0.0,
+      "plan": {
+        "id": 1,
+        "cost": 1.0,
+        "freeUsers": 5,
+        "dueDaysSpan": 30
+      }
+    }
+  }

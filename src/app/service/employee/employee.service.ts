@@ -7,6 +7,7 @@ import {map,catchError} from 'rxjs/operators';
 import { Employee } from 'src/app/core/models/employee.interface';
 import { SubordinatesData } from 'src/app/core/models/subordinates-data.interface';
 import { LocalDate } from 'src/app/core/utils/local-date/local-date';
+import { Timeline } from 'src/app/core/models/timeline.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -70,6 +71,63 @@ export class EmployeeService {
         throw error;
       })
     );
+  }
+
+  getEmployeeTimeline(id:number,startDate:LocalDate,endDate:LocalDate) : Observable<Timeline[]>{
+    return this.httpService.get(`employees/${id}/employee-timeline/v2?startDate=${startDate.toLocale()}&endDate=${endDate.toLocale()}`)
+    .pipe(
+      map((response:any)=>{
+        return this.getTimelineDataFromJsonResponse(response.data);
+      }),
+      catchError((error)=>{
+        throw error;
+      })
+    )
+  }
+
+  getTimelineDataFromJsonResponse(timelineData: any): Timeline[] {
+    const timeline: Timeline[] = timelineData.map((data:any)=>{
+      return {
+        date: data.date,
+        leaves: data.leaves?.map((leave: any) => {
+          return {
+            leave: leave.leave,
+            leaveType: leave.leaveType,
+            reason: leave.reason,
+            status: leave.status
+          }
+        }),
+        meeting: data.meeting?.map((m: any) => {
+          return {
+            id: m.id,
+            manager: m.manager,
+            employee: m.employee,
+            remarks: m.remarks,
+            isPrivate: m.isPrivate,
+            date: m.date
+          }
+        }),
+        holiday: data.holiday,
+        isExempted: data.isExempted,
+        officeLocation: data.officeLocation,
+        isEditable: data.isEditable,
+        updates: data.updates.map((update: any) => {
+          return {
+            date: data.date,
+            update: update.update,
+            project: {
+              id: update.project.id,
+              member: true,
+              name: update.project.name,
+              slug: update.project.slug,
+              teamSize: update.project.teamSize,
+              taskTeamId: update.project.taskTeamId
+            },
+          }
+        })
+      }
+    })
+    return timeline;
   }
   
 }

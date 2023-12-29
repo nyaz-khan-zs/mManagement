@@ -1,0 +1,153 @@
+{
+    "data": [
+      {
+        "date": "2023-12-25",
+        "leaves": null,
+        "holiday": {
+          "reason": "Christmas"
+        },
+        "meeting": [
+          {
+            "id": 1370,
+            "manager": {
+              "id": 956,
+              "name": "Vijoy Bardhan Singh",
+              "employeeId": null,
+              "email": "vijoybardhan.singh@zopsmart.com",
+              "joiningDate": null,
+              "designation": null,
+              "location": null,
+              "timezone": "Asia/Calcutta",
+              "profileUrl": "https://lh3.googleusercontent.com/a/ACg8ocJL9EhOkbiZsHecgON8BJYniUDUF9z7wgdKuV62KJMP2g=s96-c",
+              "isActive": true,
+              "removalDate": null,
+              "currentlyExempted": false,
+              "gender": "MALE"
+            },
+            "employee": {
+              "id": 990,
+              "name": "Shruti Khare",
+              "employeeId": null,
+              "email": "shruti.khare@zopsmart.com",
+              "joiningDate": null,
+              "designation": "Scrum Master",
+              "location": null,
+              "timezone": "Asia/Calcutta",
+              "profileUrl": "https://lh3.googleusercontent.com/a/ACg8ocK7q30bDgwiqx399Y3yOD-44oTucYPzv7q68w3-46j5ZbM=s96-c",
+              "isActive": true,
+              "removalDate": null,
+              "currentlyExempted": false,
+              "gender": "FEMALE"
+            },
+            "remarks": "**Meeting :**\n\n1.  One day meeting\n2.  Two day meeting",
+            "isPrivate": false,
+            "date": "2023-12-25"
+          }
+        ],
+        "isExempted": false,
+        "officeLocation": "HSR",
+        "updates": [
+          {
+            "project": {
+              "id": 528,
+              "name": "Backend Team (Java, SpringBoot)",
+              "description": "Java, SpringBoot.. etc",
+              "teamSize": 6,
+              "startDate": "2023-10-12",
+              "completionDate": null,
+              "imageUrl": "",
+              "visibility": "ORGANISATION",
+              "taskTeamId": 6404,
+              "slug": "backend-team",
+              "googleChatSupport": false,
+              "githubSupport": false,
+              "createdAt": null,
+              "active": true
+            },
+            "update": {
+              "id": 1118,
+              "remarks": "<h1>Hello Bro</h1>",
+              "type": "PROJECT"
+            }
+          },
+          {
+            "project": {
+              "id": 555,
+              "name": "Blue Sky Innovation project ",
+              "description": "fjrhefjkrenfkjrenf fvfv It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+              "teamSize": 24,
+              "startDate": "2022-04-01",
+              "completionDate": null,
+              "imageUrl": "https://storage.googleapis.com/zopping-staging-uploads/2497/images/originals/20231020/imagefile-20231020-074218.webp",
+              "visibility": "ORGANISATION",
+              "taskTeamId": 6430,
+              "slug": "blue-sky-innovation-project",
+              "googleChatSupport": true,
+              "githubSupport": false,
+              "createdAt": null,
+              "active": true
+            },
+            "update": null
+          },
+          {
+            "project": {
+              "id": 577,
+              "name": "Java Team",
+              "description": "TBT",
+              "teamSize": 3,
+              "startDate": "2023-11-27",
+              "completionDate": null,
+              "imageUrl": "",
+              "visibility": "ORGANISATION",
+              "taskTeamId": 6654,
+              "slug": "satgeeu-java",
+              "googleChatSupport": false,
+              "githubSupport": false,
+              "createdAt": null,
+              "active": true
+            },
+            "update": null
+          },
+          {
+            "project": {
+              "id": 587,
+              "name": "Java Team Overflow test",
+              "description": "TBT",
+              "teamSize": 3,
+              "startDate": "2023-11-27",
+              "completionDate": null,
+              "imageUrl": "",
+              "visibility": "ORGANISATION",
+              "taskTeamId": 6654,
+              "slug": "satgeeu-java",
+              "googleChatSupport": false,
+              "githubSupport": false,
+              "createdAt": null,
+              "active": true
+            },
+            "update": null
+          },
+          {
+            "project": {
+              "id": 587,
+              "name": "Java Team overflow test and content-size",
+              "description": "TBT",
+              "teamSize": 3,
+              "startDate": "2023-11-27",
+              "completionDate": null,
+              "imageUrl": "",
+              "visibility": "ORGANISATION",
+              "taskTeamId": 6654,
+              "slug": "satgeeu-java",
+              "googleChatSupport": false,
+              "githubSupport": false,
+              "createdAt": null,
+              "active": true
+            },
+            "update": null
+          }
+        ],
+        "isEditable": true
+      }
+    ]
+  }

@@ -1,6 +1,6 @@
 <div>
-    <section>
-        <span class="section-title">Projects @{{organisation.name}}</span>
+    <section *ngIf="projects">
+        <span class="section-title">Projects @{{organisation?.name}}</span>
         <div class="section-content">
             <div class="project-card" *ngFor="let project of projects">
                 <div class="project-card-title">
@@ -13,7 +13,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section *ngIf="directReportees && directReportees.length>0">
         <div class="reportees-section-title">
             <span>Direct Reportees</span>
             <span class="link">View Direct Reportees Updates</span>
@@ -34,11 +34,11 @@
     </section>
     <section>
         <div class="update-section-box">
-            <div class="update-section-input-box">
+            <div class="update-section-input-box" *ngIf="update">
                 <span class="section-title">My Updates For Today</span>
                 <editor [updates]="update.updates" class="update-section-border"></editor>
             </div>
-            <div class="subordinate-stats-section">
+            <div class="subordinate-stats-section" *ngIf="directReportees && directReportees.length>0 && subordinateLeaves">
                 <span class="subordinate-stats">
                     <span class="subordinate-stats-title">On Leave - {{subordinateLeavesDate.getDay()}}
                         {{subordinateLeavesDate.getMonthName()}}
@@ -63,16 +63,17 @@
                     No one is on leave
                 </div>
             </div>
-            <div class="subordinate-stats-section">
+            <div class="subordinate-stats-section" *ngIf="directReportees && directReportees.length>0 && subordinateNoUpdates">
                 <span class="subordinate-stats">
-                    <span class="subordinate-stats-title">
-                        No updates - {{subordinateNoUpdateDate.getDay()}} {{subordinateNoUpdateDate.getMonthName()}}
-                        <span class="subordinate-count">
+                    <span class="subordinate-stats-title">No Updates - {{subordinateNoUpdateDate.getDay()}}
+                        {{subordinateNoUpdateDate.getMonthName()}}
+                        <span class="subordinate-count" >
                             <span class="subordinate-count-text">Direct Reportees</span>
-                            {{subordinateLeaves.directReportees}}</span>
+                            {{subordinateNoUpdates.directReportees}}
+                        </span>
                         <span class="subordinate-count">
                             <span class="subordinate-count-text">Indirect Reportees</span>
-                            {{subordinateLeaves.indirectReportees}}</span>
+                            {{subordinateNoUpdates.indirectReportees}}</span>
                     </span>
                     <span>calendar</span>
                 </span>
@@ -81,7 +82,7 @@
                         getUnionOfArray(subordinateNoUpdates.directReporteesDetails,subordinateNoUpdates.indirectReporteesDetails)"
                         class="subordinate-stats-employee" >
                             <img src={{employee.profileUrl}} alt={{employee.name}} />
-                            <p class="subordinate-stats-employee-name">{{employee.name}}</p>
+                            <span class="subordinate-stats-employee-name">{{employee.name}}</span>
                         </span>
                 </div>
                 <div *ngIf="subordinateNoUpdates.directReportees + subordinateNoUpdates.indirectReportees <= 0" class="no-subordinate-data">

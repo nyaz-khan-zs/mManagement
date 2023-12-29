@@ -1,0 +1,94 @@
+{
+    "data": [
+      {
+        "id": 459,
+        "name": "Shruti's Project",
+        "teamSize": 5,
+        "taskTeamId": 6377,
+        "slug": "shrutis-project",
+        "member": true,
+        "parentProjectId": null,
+        "numberOfSubProjects": 0
+      },
+      {
+        "id": 461,
+        "name": "MI PALTAN cdcdcd",
+        "teamSize": 0,
+        "taskTeamId": 3134,
+        "slug": "mi-paltan",
+        "member": true,
+        "parentProjectId": null,
+        "numberOfSubProjects": 0
+      },
+      {
+        "id": 502,
+        "name": "MentorPro",
+        "teamSize": 2,
+        "taskTeamId": 6384,
+        "slug": "mentorpro",
+        "member": false,
+        "parentProjectId": null,
+        "numberOfSubProjects": 0
+      },
+      {
+        "id": 528,
+        "name": "Backend Team (Java, SpringBoot)",
+        "teamSize": 6,
+        "taskTeamId": 6404,
+        "slug": "backend-team",
+        "member": false,
+        "parentProjectId": null,
+        "numberOfSubProjects": 0
+      },
+      {
+        "id": 555,
+        "name": "Blue Sky Innovation project ",
+        "teamSize": 24,
+        "taskTeamId": 6430,
+        "slug": "blue-sky-innovation-project",
+        "member": false,
+        "parentProjectId": null,
+        "numberOfSubProjects": 0
+      },
+      {
+        "id": 577,
+        "name": "Java Team",
+        "teamSize": 3,
+        "taskTeamId": 6654,
+        "slug": "satgeeu-java",
+        "member": false,
+        "parentProjectId": null,
+        "numberOfSubProjects": 0
+      },
+      {
+        "id": 584,
+        "name": "Backend Team (Java, SpringBoot)",
+        "teamSize": 6,
+        "taskTeamId": 6404,
+        "slug": "backend-team",
+        "member": false,
+        "parentProjectId": null,
+        "numberOfSubProjects": 0
+      },
+      {
+        "id": 585,
+        "name": "Blue Sky Innovation project Blue Sky Innovation project",
+        "teamSize": 24,
+        "taskTeamId": 6430,
+        "slug": "blue-sky-innovation-project",
+        "member": false,
+        "parentProjectId": null,
+        "numberOfSubProjects": 0
+      },
+      {
+        "id": 587,
+        "name": "Java Team",
+        "teamSize": 3,
+        "taskTeamId": 6654,
+        "slug": "satgeeu-java",
+        "member": false,
+        "parentProjectId": null,
+        "numberOfSubProjects": 0
+      }
+    ]
+  }

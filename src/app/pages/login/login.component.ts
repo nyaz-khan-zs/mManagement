@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { jwtDecode } from 'jwt-decode';
 import { LocalStorageService } from 'src/app/core/utils/local-storage/local-storage.service';
 import { GoogleUserData } from 'src/app/core/models/session-data.interface';
-import { LoginRequest } from 'src/app/core/models/login-request.interface';
+import { LoginRequest } from 'src/app/core/request/login-request.interface';
 import { Router } from '@angular/router';
 import { RoutePaths } from 'src/app/core/enum/route-path';
 
