@@ -5,6 +5,8 @@ import { Employee } from 'src/app/core/models/employee.interface';
 import { Timeline } from 'src/app/core/models/timeline.interface';
 import { SubordinatesData } from 'src/app/core/models/subordinates-data.interface';
 import { LocalDate } from 'src/app/core/utils/local-date/local-date';
+import { EmployeeService } from 'src/app/service/employee/employee.service';
+import { OrganisationService } from 'src/app/service/organisation/organisation.service';
 
 @Component({
   selector: 'dashboard',
@@ -378,7 +380,7 @@ export class DashboardComponent implements OnInit {
   subordinateNoUpdateDate : LocalDate = new LocalDate();
   localDate : Date = new LocalDate();
 
-  constructor() { }
+  constructor(private employeeService : EmployeeService,private organisationService: OrganisationService) { }
 
   ngOnInit(): void {
     this.projects = this.projectJsonData.data.map((projectData: any) => {
@@ -393,32 +395,23 @@ export class DashboardComponent implements OnInit {
         numberOfSubProjects: projectData.numberOfSubProjects,
       };
     });
-
-    this.directReportees = this.reporteesJsonData.data.map((employee: any) => {
-      return {
-        id: employee.id,
-        name: employee.name,
-        location: employee.location,
-        email: employee.email,
-        designation: employee.designation,
-        joiningDate: employee.date,
-        reportingTo: employee.reportingTo,
-        employeeId: employee.employeeId,
-        profileUrl: employee.profileUrl,
-        viewTimeline: employee.viewTimeline,
-        isActive: employee.isActive,
-        removalDate: employee.removalDate,
-        exempted: employee.exempted,
-        officeLocation: employee.officeLocation,
-        githubUsername: employee.githubUsername,
-        gender: employee.gender,
-        numberOfSubOrdinates: employee.numberOfSubOrdinates
-      };
-    })
+    this.employeeService.getReportees().subscribe({
+      next : (value : Employee[]) => {this.directReportees = value},
+      error : (error)=>{console.log(error);}
+    });
     this.update = this.getUpdateDataFromJson(this.updateJsonData);
-    this.organisation = this.organisationJsonData.data as Organisation;
-    this.subordinateLeaves = this.subOrdinateLeavesJsonData.data as SubordinatesData;
-    this.subordinateNoUpdates = this.subOrdinateNoUpdatesData.data as SubordinatesData;
+    this.organisationService.getOrganisation().subscribe({
+      next : (value : Organisation)=>{this.organisation = value},
+      error : (error)=>{console.log(error)}
+    })
+    this.employeeService.getSubordinateLeaves(new LocalDate()).subscribe({
+      next : (value : SubordinatesData) => {this.subordinateLeaves = value},
+      error : (error) => {console.log(error)}
+    })
+    this.employeeService.getSubordinateNoUpdates(new LocalDate()).subscribe({
+      next : (value : SubordinatesData) => {this.subordinateNoUpdates = value},
+      error : (error) => {console.log(error)}
+    })
   }
 
   getUpdateDataFromJson(jsonData: any): Timeline {
