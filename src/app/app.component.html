@@ -2,7 +2,7 @@
   <div class="sidebar" *ngIf="isLoggedIn">
     <app-sidebar></app-sidebar>
   </div>
-  <div class="leave-page">
+  <div [ngClass]="{'leave-page' : isLoggedIn}">
     <router-outlet></router-outlet>
   </div>
 </div>

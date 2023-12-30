@@ -9,7 +9,7 @@ export class LocalStorageService {
   constructor() { }
 
   isUserLoggedIn():boolean{
-    return localStorage.getItem('token') !== null;
+    return (localStorage.getItem('token') !== null && localStorage.getItem('token')!==undefined);
   }
 
   getSessionData(): SessionData{
@@ -21,8 +21,17 @@ export class LocalStorageService {
   }
 
   setSessionData(sessionData : SessionData) : void{
+    try{
     localStorage.setItem("token", sessionData.token);
     localStorage.setItem("userData", JSON.stringify(sessionData.userData));
     localStorage.setItem("accessTokenForNewOrg", sessionData.accessTokenForNewOrg ?? "");
+    }catch(error){
+      console.log("Error while update local storage -> ",error);
+    }
   }
+
+  clearSessionData(){
+    localStorage.clear();
+  }
+  
 }
