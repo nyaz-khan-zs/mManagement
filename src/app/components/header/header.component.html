@@ -1,0 +1,14 @@
+<section class="header">
+    <span class="left">
+        <span class="navbar-toggler-icon" (click)="toggleSidebar()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </span>
+        <span class="page-title">{{activePage}}</span>
+    </span>
+    <span>
+        <img src="{{sessionData.userData.profileImage}}"
+            alt="{{sessionData.userData.firstName.charAt(0) | uppercase}}" />
+    </span>
+</section>

@@ -1,0 +1,40 @@
+.header {
+    width: calc(100%);
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    padding-right: 15px;
+}
+
+.left{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+    gap: 10px;
+}
+
+.navbar-toggler-icon{
+    cursor: pointer;
+}
+
+.navbar-toggler-icon div {
+    width: 35px;
+    height: 2px;
+    background-color: black;
+    margin: 5px 0;
+}
+
+.page-title {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: inherit;
+}
+
+img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
