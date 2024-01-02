@@ -2,7 +2,8 @@
   height: 100vh;
   display: flex;
 }
-.sidebar {
+.sidebar,
+.sidebar-hide {
   box-shadow: 5px 0px 5px #44444422;
   z-index: 5;
 }
@@ -23,15 +24,24 @@
     z-index: 5;
     background-color: white;
     height: 100vh;
+    position: fixed;
+    top: 0; 
+    left: 0;
   }
 
-  .leave-page {
-    width: calc(100vw - 102px);
-    margin-right: 5px;
+  .sidebar-hide {
+    display: none;
   }
-  
-  .leave-page-expanded{
-    width: calc(100vw - 250px);
-    margin-right: 5px;
+
+  .leave-page,
+  .leave-page-expanded {
+    width: 100vw;
+    position: absolute;
+    margin-left: 3px;
+    margin-right: 3px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 }

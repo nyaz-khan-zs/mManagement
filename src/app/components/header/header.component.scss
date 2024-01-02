@@ -38,3 +38,25 @@ img {
     border-radius: 50%;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+    .page-title {
+        font-size: 14px;
+        font-weight: 700;
+        font-family: inherit;
+    }
+    
+    .navbar-toggler-icon div {
+        width: 25px;
+        height: 1px;
+        background-color: black;
+        margin: 4px 0;
+    }
+    
+    img {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
