@@ -3,6 +3,7 @@ import { RoutePaths } from 'src/app/core/enum/route-path';
 import { Router,NavigationEnd } from '@angular/router';
 import { LocalStorageService } from 'src/app/core/utils/local-storage/local-storage.service';
 import { SessionData } from 'src/app/core/models/session-data.interface';
+import { SharedDataService } from 'src/app/service/shared-data/shared-data.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,6 @@ import { SessionData } from 'src/app/core/models/session-data.interface';
 })
 export class HeaderComponent implements OnInit {
   activePage : string = '';
-  @Input() toggleSidebar: () => boolean = () => false;
 
   pages : Map<string,string> = new Map([
     [RoutePaths.DASHBOARD_ROUTE,'DASHBOARD'],
@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   ]);
   sessionData!: SessionData;
 
-  constructor(private router: Router,private localStorgaeService: LocalStorageService) {
+  constructor(private router: Router,private localStorgaeService: LocalStorageService,public sharedDataService : SharedDataService) {
     this.sessionData = localStorgaeService.getSessionData();
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpService } from './core/utils/http-service/http.service';
 import { HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -6,24 +6,25 @@ import { LocalStorageService } from './core/utils/local-storage/local-storage.se
 import { SessionData } from './core/models/session-data.interface';
 import { Router, NavigationEnd } from '@angular/router';
 import { RoutePaths } from './core/enum/route-path';
+import { BehaviorSubject } from 'rxjs';
+import { SharedDataService } from './service/shared-data/shared-data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent{
+export class AppComponent implements OnInit{
   ACCESS_TOKEN_REFRESH_TIME = environment.ACCESS_TOKEN_REFRESH_TIME;
   title = 'mManagement';
   isLoggedIn:boolean = true;
   sessionData!: SessionData;
-  isExpanded: boolean = true;
 
-  constructor(private httpService : HttpService,private localStorageService: LocalStorageService,private router: Router){
+  constructor(private httpService : HttpService,private localStorageService: LocalStorageService,private router: Router,public sharedDataService : SharedDataService){
     this.startBackgroundTask();
     this.isLoggedIn = this.localStorageService.isUserLoggedIn();
     this.sessionData = this.localStorageService.getSessionData();
-
+  
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.isLoggedIn = this.localStorageService.isUserLoggedIn();
@@ -31,11 +32,7 @@ export class AppComponent{
     });
   }
 
-  toggleSidebar():boolean{
-    this.isExpanded = this.isExpanded === undefined ? false : this.isExpanded = this.isExpanded ? false : true;
-    console.log('---> ',this.isExpanded);
-    return this.isExpanded;
-  }
+  ngOnInit(): void {}
 
   private startBackgroundTask(): void {
     if(this.localStorageService.isUserLoggedIn()){

@@ -1,19 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { SideBarData } from 'src/app/core/models/sidebarData';
 import { RoutePaths } from 'src/app/core/enum/route-path';
+import { SharedDataService } from 'src/app/service/shared-data/shared-data.service';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
-export class SidebarComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+export class SidebarComponent {
 
   selectedTab: string = '';
-  @Input() isExpanded !: boolean;
 
   dashboardIcon: string = '../../../assets/dashboard.svg';
   orgChartIcon: string = '../../../assets/orgChart.svg';
@@ -22,6 +19,7 @@ export class SidebarComponent implements OnInit {
   myTasksIcon: string = '../../../assets/mytasks.svg';
   myAssetsIcon: string = '../../../assets/myassets.svg';
   meetingsIcon: string = '../../../assets/meetings.svg';
+  isExpanded: boolean = true;
 
   data: SideBarData[] = [
     {
@@ -60,6 +58,9 @@ export class SidebarComponent implements OnInit {
       routerLink : RoutePaths.DASHBOARD_ROUTE
     },
   ];
+
+  constructor(public sharedDataService : SharedDataService) {}
+
 
   changeSelectedTab(value: string) {
     this.selectedTab = value;
