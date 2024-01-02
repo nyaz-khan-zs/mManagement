@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SideBarData } from 'src/app/core/models/sidebarData';
 import { RoutePaths } from 'src/app/core/enum/route-path';
 
@@ -13,7 +13,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {}
 
   selectedTab: string = '';
-  isVisited: boolean = false;
+  @Input() isExpanded !: boolean;
 
   dashboardIcon: string = '../../../assets/dashboard.svg';
   orgChartIcon: string = '../../../assets/orgChart.svg';
@@ -63,9 +63,5 @@ export class SidebarComponent implements OnInit {
 
   changeSelectedTab(value: string) {
     this.selectedTab = value;
-  }
-
-  hideSidebar() {
-    this.isVisited = !this.isVisited;
   }
 }

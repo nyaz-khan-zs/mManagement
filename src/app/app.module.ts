@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxWigModule } from 'ngx-wig';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { LeavePageComponent } from './pages/leave-page/leave-page.component';
 import { AllLeavesComponent } from './containers/all-leaves/all-leaves.component';
@@ -20,6 +20,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { EditorComponent } from './components/editor/editor.component';
 import { HttpService } from './core/utils/http-service/http.service';
 import { AuthGuard } from './auth.guard';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AuthGuard } from './auth.guard';
     SidebarComponent,
     DashboardComponent,
     LoginComponent,
-    EditorComponent
+    EditorComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,7 @@ import { AuthGuard } from './auth.guard';
     HttpClientModule,
     NgxWigModule,
     FormsModule
-  ],
+    ],
   providers: [HttpService,AuthGuard],
   bootstrap: [AppComponent]
 })

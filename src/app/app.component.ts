@@ -4,7 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { LocalStorageService } from './core/utils/local-storage/local-storage.service';
 import { SessionData } from './core/models/session-data.interface';
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { RoutePaths } from './core/enum/route-path';
 
 @Component({
@@ -12,11 +12,12 @@ import { RoutePaths } from './core/enum/route-path';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent{
   ACCESS_TOKEN_REFRESH_TIME = environment.ACCESS_TOKEN_REFRESH_TIME;
   title = 'mManagement';
   isLoggedIn:boolean = true;
   sessionData!: SessionData;
+  isExpanded: boolean = true;
 
   constructor(private httpService : HttpService,private localStorageService: LocalStorageService,private router: Router){
     this.startBackgroundTask();
@@ -28,6 +29,12 @@ export class AppComponent {
         this.isLoggedIn = this.localStorageService.isUserLoggedIn();
       }
     });
+  }
+
+  toggleSidebar():boolean{
+    this.isExpanded = this.isExpanded === undefined ? false : this.isExpanded = this.isExpanded ? false : true;
+    console.log('---> ',this.isExpanded);
+    return this.isExpanded;
   }
 
   private startBackgroundTask(): void {
@@ -51,4 +58,5 @@ export class AppComponent {
       },this.ACCESS_TOKEN_REFRESH_TIME);
     }
     }
+    
 }

@@ -1,8 +1,15 @@
 <div class="my-app">
   <div class="sidebar" *ngIf="isLoggedIn">
-    <app-sidebar></app-sidebar>
+    <app-sidebar [isExpanded]="isExpanded"></app-sidebar>
   </div>
-  <div [ngClass]="{'leave-page' : isLoggedIn}">
+  <div *ngIf="isExpanded; else noTitle" [ngClass]="{'leave-page-expanded' : isLoggedIn}">
+    <app-header *ngIf="isLoggedIn" [toggleSidebar]="toggleSidebar"></app-header>
     <router-outlet></router-outlet>
   </div>
+  <ng-template #noTitle>
+    <div [ngClass]="{'leave-page' : isLoggedIn}">
+      <app-header *ngIf="isLoggedIn" [toggleSidebar]="toggleSidebar"></app-header>
+      <router-outlet></router-outlet>
+    </div>
+  </ng-template>
 </div>
