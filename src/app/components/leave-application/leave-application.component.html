@@ -1,0 +1,57 @@
+<div class="popUp" [hidden]="IsmodelShow">
+    <div class="modal">
+        <div class="content">
+            <div class="addLeaveCard">
+                <h1 class="on-leave-heading">Apply Leave</h1>
+            <div class="leaveBody">
+                <div class="day-type-selection">
+                    <label class="headings">Day type</label>
+                </div>
+                <div class="duration-selector">
+                    <div class="first-half-section">
+                        <input type="radio" name="sessions" id="firstHalf" checked="">
+                        <label for="firstHalf">First Half</label>
+                    </div>
+                    <div class="second-half-section">
+                        <input type="radio" name="sessions" id="secondHalf">
+                        <label for="secondHalf">Second Half</label>
+                    </div>
+                    <div class="full-day-section">
+                        <input type="radio" name="sessions" id="fullDay">
+                        <label for="fullDay">Full Day</label>
+                    </div>
+                </div>
+                <div class="leave-type-section">
+                    <div class="type-balance"><label class="headings" for="selectLeaveType">Leave Type*</label></div>
+                    <select id="selectLeaveType" name="name"><option value="">Select Leave Type</option><option value="sick">sick</option><option value="casual">casual</option></select>
+                </div>
+                <div class="from-date-selector">
+                    <label class="headings" for="date">Date*</label>
+                    <input class="date-picker" type="date" id="date" name="Date" value="2023-12-28">
+                </div>
+                <div class="leave-reason-section">
+                    <label class="headings">Reason*</label><textarea class="textarea" placeholder="Type your reason here."></textarea>
+                </div>
+                <div class="leave-cc-section">
+                    <label class="headings">CC</label>
+                    <div class="dropdown-search">
+                        <div class="AdminInput AdminDropDownSearch">
+                            <div class="admin-dropdown-header undefined">
+                                <input type="text" class="admin-dropdown-input undefined" placeholder="Search" value=""></div></div><div class="project-manager-namelist"><div class="attachement-tags"></div></div></div>
+                </div>
+                <label class="leave-attachment">
+                    <div class="icon-text">
+                        <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1">
+                        <title>Add attachment</title>
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-336.000000, -199.000000)"><g transform="translate(130.000000, 159.000000)"><g transform="translate(206.000000, 40.000000)"><g><rect x="0" y="0" width="16" height="16"></rect><path d="M11,4.38223696 L11,11 C11,12.6568542 9.65685423,14 8,14 C6.34314575,14 5,12.6568542 5,11 L5,4.04332913 C5,2.91482961 5.91482961,2 7.04332913,2 C8.17182864,2 9.08665825,2.91482961 9.08665825,4.04332913 L9.08665825,10.4780948 C9.08665825,11.0686918 8.60788477,11.5474653 8.01728775,11.5474653 C7.42669073,11.5474653 6.94791724,11.0686918 6.94791724,10.4780948 L6.94791724,4.38223696" stroke="#979797" stroke-width="0.8" stroke-linecap="round"></path></g><g transform="translate(8.000000, 10.000000)" fill-rule="nonzero"><circle fill="#FFFFFF" cx="3" cy="3" r="3"></circle><g transform="translate(1.280000, 1.824707)" fill="#979797"><path d="M1.06201172,2.17529297 L0.609375,2.17529297 L0.609375,0.936035156 L0.613769531,0.732421875 L0.62109375,0.509765625 C0.545898438,0.584960938 0.493652344,0.634277344 0.464355469,0.657714844 L0.218261719,0.85546875 L0,0.583007812 L0.689941406,0.0336914062 L1.06201172,0.0336914062 L1.06201172,2.17529297 Z"></path><path d="M3.140625,1.10449219 C3.140625,1.47851562 3.0793457,1.75537109 2.95678711,1.93505859 C2.83422852,2.11474609 2.64550781,2.20458984 2.390625,2.20458984 C2.14355469,2.20458984 1.95727539,2.11181641 1.83178711,1.92626953 C1.70629883,1.74072266 1.64355469,1.46679688 1.64355469,1.10449219 C1.64355469,0.7265625 1.70458984,0.447998047 1.82666016,0.268798828 C1.94873047,0.0895996094 2.13671875,0 2.390625,0 C2.63769531,0 2.82446289,0.09375 2.95092773,0.28125 C3.07739258,0.46875 3.140625,0.743164062 3.140625,1.10449219 Z M2.09326172,1.10449219 C2.09326172,1.3671875 2.1159668,1.55541992 2.16137695,1.66918945 C2.20678711,1.78295898 2.28320312,1.83984375 2.390625,1.83984375 C2.49609375,1.83984375 2.57226562,1.78222656 2.61914062,1.66699219 C2.66601562,1.55175781 2.68945312,1.36425781 2.68945312,1.10449219 C2.68945312,0.841796875 2.66577148,0.653076172 2.6184082,0.538330078 C2.57104492,0.423583984 2.49511719,0.366210938 2.390625,0.366210938 C2.28417969,0.366210938 2.20800781,0.423583984 2.16210938,0.538330078 C2.11621094,0.653076172 2.09326172,0.841796875 2.09326172,1.10449219 Z"></path></g></g>``</g></g></g></g></svg><input type="file" name="file" accept=".pdf,.jpg,.png,.jpeg" hidden="">
+                        <span class="text">Attach Files</span></div><div class="fileSupportInfo"><span>Size limit: 1MB &amp; Supported types: pdf, png, jpg, jpeg</span></div>
+                    </label>
+                    <div class="from-to-date-selector on-leave-button">
+                        <button class="cancel-button" (click)="close()">Cancel</button>
+                        <button class="update-button">Apply</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
