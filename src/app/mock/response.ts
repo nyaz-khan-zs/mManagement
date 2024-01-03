@@ -1,4 +1,4 @@
-import { User } from '../models/org.model';
+import { User } from '../core/models/org.model';
 
 export const data: User[] = [
   {

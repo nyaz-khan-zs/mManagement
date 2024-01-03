@@ -10,8 +10,8 @@ import {
 } from '@angular/core';
 
 import { OrgChart } from 'd3-org-chart';
-import { Node } from '../models/org.model';
-import { OrgChartService } from ;
+import { Node } from '../../core/models/org.model';
+import { OrgChartService } from '';
 
 @Component({
   selector: 'app-d3-org-chart',
