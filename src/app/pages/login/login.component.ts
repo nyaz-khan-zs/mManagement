@@ -96,7 +96,7 @@ export class LoginComponent implements OnInit {
             token : loginResponse.data.accessToken,
             userData : userData,
           })
-          this.router.navigate([RoutePaths.DASHBOARD_ROUTE])
+          window.location.reload();
         },
       error : (error) =>{
         console.log(error);
