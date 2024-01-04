@@ -1,30 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from './core/utils/http-service/http.service';
+import { HttpService } from './service/http-service/http.service';
 import { HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { LocalStorageService } from './core/utils/local-storage/local-storage.service';
-import { SessionData } from './core/models/session-data.interface';
+import { LocalStorageService } from './service/local-storage/local-storage.service';
+import { SessionData } from './models/models/session-data.interface';
 import { Router, NavigationEnd } from '@angular/router';
-import { RoutePaths } from './core/enum/route-path';
+import { RoutePaths } from '../../src/app/models/models/route_path';
 import { BehaviorSubject } from 'rxjs';
 import { SharedDataService } from './service/shared-data/shared-data.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   ACCESS_TOKEN_REFRESH_TIME = environment.ACCESS_TOKEN_REFRESH_TIME;
   title = 'mManagement';
-  isLoggedIn:boolean = true;
+  isLoggedIn: boolean = true;
   sessionData!: SessionData;
 
-  constructor(private httpService : HttpService,private localStorageService: LocalStorageService,private router: Router,public sharedDataService : SharedDataService){
+  constructor(
+    private httpService: HttpService,
+    private localStorageService: LocalStorageService,
+    private router: Router,
+    public sharedDataService: SharedDataService
+  ) {
     this.startBackgroundTask();
     this.isLoggedIn = this.localStorageService.isUserLoggedIn();
     this.sessionData = this.localStorageService.getSessionData();
-  
+
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.isLoggedIn = this.localStorageService.isUserLoggedIn();
@@ -35,25 +40,25 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {}
 
   private startBackgroundTask(): void {
-    if(this.localStorageService.isUserLoggedIn()){
-      setInterval(()=>{
+    if (this.localStorageService.isUserLoggedIn()) {
+      setInterval(() => {
         let httpHeaders = new HttpHeaders({
-          refreshToken : `${this.sessionData.userData.refreshToken}`
-        })
-        this.httpService.post('login/refreshToken',{},httpHeaders).subscribe(
-          (response : any)=>{
-            const token:string = response.data.accessToken;
+          refreshToken: `${this.sessionData.userData.refreshToken}`,
+        });
+        this.httpService.post('login/refreshToken', {}, httpHeaders).subscribe(
+          (response: any) => {
+            const token: string = response.data.accessToken;
             this.sessionData.userData.accessToken = token;
             this.sessionData.token = token;
             this.localStorageService.setSessionData(this.sessionData);
-          },(error : any)=>{
+          },
+          (error: any) => {
             console.log(error);
             this.localStorageService.clearSessionData();
             this.router.navigate([RoutePaths.LOGIN_ROUTE]);
           }
-        )
-      },this.ACCESS_TOKEN_REFRESH_TIME);
+        );
+      }, this.ACCESS_TOKEN_REFRESH_TIME);
     }
-    }
-    
+  }
 }

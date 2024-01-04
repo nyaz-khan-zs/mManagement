@@ -1,27 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { catchError,map } from 'rxjs/operators';
-import { Organisation } from 'src/app/core/models/organisation.interface';
-import { HttpService } from 'src/app/core/utils/http-service/http.service';
+import { catchError, map } from 'rxjs/operators';
+import { Organisation } from 'src/app/models/models/organisation.interface';
+import { HttpService } from 'src/app/service/http-service/http.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OrganisationService {
+  constructor(private httpService: HttpService) {}
 
-  constructor(private httpService : HttpService) { }
-
-  getOrganisation():Observable<Organisation>{
-    return this.httpService.get('organisation')
-    .pipe(
-      map((json:any)=>{
-        return json.data as Organisation
+  getOrganisation(): Observable<Organisation> {
+    return this.httpService.get('organisation').pipe(
+      map((json: any) => {
+        return json.data as Organisation;
       }),
-      catchError((error)=>{
+      catchError((error) => {
         throw error;
       })
-    )
+    );
   }
-
-
 }

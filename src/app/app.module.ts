@@ -7,20 +7,20 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LeavePageComponent } from './pages/leave-page/leave-page.component';
-import { AllLeavesComponent } from './containers/all-leaves/all-leaves.component';
-import { LeaveInfoComponent } from './containers/leave-info/leave-info.component';
-import { LeaveHeaderComponent } from './containers/leave-header/leave-header.component';
+import { AllLeavesComponent } from './modules/leaves/all-leaves/all-leaves.component';
+import { LeaveInfoComponent } from './modules/leaves/leave-info/leave-info.component';
+import { LeaveHeaderComponent } from './modules/leaves/leave-header/leave-header.component';
 import { CardComponent } from './components/card/card.component';
-import { LeaveSummaryComponent } from './components/leave-summary/leave-summary.component';
-import { PieChartComponent } from './components/pie-chart/pie-chart.component';
+import { LeaveSummaryComponent } from './modules/leaves/leave-summary/leave-summary.component';
+import { PieChartComponent } from './modules/leaves/pie-chart/pie-chart.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
-import { EditorComponent } from './components/editor/editor.component';
-import { HttpService } from './core/utils/http-service/http.service';
+import { EditorComponent } from './shared/editor/editor.component';
+import { HttpService } from './service/http-service/http.service';
 import { AuthGuard } from './auth.guard';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [
@@ -37,16 +37,16 @@ import { HeaderComponent } from './components/header/header.component';
     DashboardComponent,
     LoginComponent,
     EditorComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgxWigModule,
-    FormsModule
-    ],
-  providers: [HttpService,AuthGuard],
-  bootstrap: [AppComponent]
+    FormsModule,
+  ],
+  providers: [HttpService, AuthGuard],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

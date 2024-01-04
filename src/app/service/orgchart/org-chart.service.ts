@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Node, User } from '../../core/models/org.model';
+import { Node, User } from '../../models/models/org.model';
 import { data } from '../../mock/response';
 
 @Injectable({
