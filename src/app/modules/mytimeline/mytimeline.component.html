@@ -1,0 +1,36 @@
+<div class="main-container">
+    <div class="right">
+      <h3>2023 DECEMBER</h3>
+      <div>
+      <editor [updates]="update.updates" class="update-section-border"></editor>
+      </div>
+      <div class="content">
+        <div class="updates" *ngFor="let item of data">
+          <div class="date">{{ item.date }}</div>
+          <div class="imgs"><img src="../favicon.ico" alt="" /></div>
+          <div class="update">
+            <div class="project" *ngFor="let ele of item.updates">
+              <h4>{{ ele.project.name }}</h4>
+              <div class="update">{{ ele.project.remarks }}</div>
+              <!-- <img src="../edit-icon.png" alt="edit"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="left">
+      <div class="profile">
+        <div class="details">
+          <div class="details-img">
+            <img src="https://picsum.photos/100" alt="" />
+          </div>
+          <div style="display: inline">
+            <h4 style="display: inline">Sarthak Kumar</h4>
+            <br />
+            <span>sarthak.kumar@zopsmart.com</span>
+          </div>
+        </div>
+        <div class="tnu">Training and UpSkilling</div>
+      </div>
+    </div>
+  </div>

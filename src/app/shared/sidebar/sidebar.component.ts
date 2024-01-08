@@ -34,7 +34,7 @@ export class SidebarComponent {
     {
       name: 'My timeline',
       logo: this.myTimeLineIcon,
-      routerLink: RoutePaths.DASHBOARD_ROUTE,
+      routerLink: RoutePaths.MYTIMELINE_ROUTE,
     },
     {
       name: 'Leaves',
@@ -44,17 +44,17 @@ export class SidebarComponent {
     {
       name: 'My tasks',
       logo: this.myTasksIcon,
-      routerLink: RoutePaths.DASHBOARD_ROUTE,
+      routerLink: RoutePaths.MYTASK_ROUTE,
     },
     {
       name: 'My assets',
       logo: this.myAssetsIcon,
-      routerLink: RoutePaths.DASHBOARD_ROUTE,
+      routerLink: RoutePaths.ASSETS_ROUTE,
     },
     {
       name: '1:1 Meetings',
       logo: this.meetingsIcon,
-      routerLink: RoutePaths.DASHBOARD_ROUTE,
+      routerLink: RoutePaths.MEETINGS_ROUTE,
     },
   ];
 

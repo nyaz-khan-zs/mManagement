@@ -21,6 +21,8 @@ import { EditorComponent } from './shared/editor/editor.component';
 import { HttpService } from './service/http-service/http.service';
 import { AuthGuard } from './auth.guard';
 import { HeaderComponent } from './shared/header/header.component';
+import { MytimelineComponent } from './modules/mytimeline/mytimeline.component';
+import { AssetsComponent } from './modules/assets/assets.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { HeaderComponent } from './shared/header/header.component';
     LoginComponent,
     EditorComponent,
     HeaderComponent,
+    MytimelineComponent,
+    AssetsComponent
   ],
   imports: [
     BrowserModule,

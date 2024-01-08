@@ -1,0 +1,38 @@
+.AssetWigdet {
+    background-color: #fff;
+    border: 1px solid #3240541a;
+    border-radius: 10px;
+    display: flex;
+    min-height: 100px;
+    padding: 15px;
+    margin: 15px;
+    position: relative;
+    width: 350px;
+}
+
+.AssetWigdet .asset-image {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    min-width: 120px;
+    width: 120px;
+}
+
+.AssetWigdet .asset-description {
+    height: 100%;
+    margin-left: 5px;
+}
+
+.AssetWigdet .asset-description .asset-name {
+    color: #131415;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.AssetWigdet .asset-description .asset-specifications {
+    color: #13140280;
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 5px;
+}
