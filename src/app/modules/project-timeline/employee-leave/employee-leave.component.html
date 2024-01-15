@@ -1,0 +1,33 @@
+<div
+  class="emp-container"
+  style="
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
+  "
+>
+  <img
+    src="{{ data.imageUrl }}"
+    alt=""
+    style="height: 40px; width: 40px; border-radius: 50%"
+  />
+  <div class="name">{{ data.name }}</div>
+  <div class="leave-type" style="color: #3f3f33; font-size: 12px">
+    full day leave
+  </div>
+  <div
+    class="status"
+    style="
+      height: fit-content;
+      width: fit-content;
+      background-color: green;
+      padding: 2px;
+      border-radius: 10px;
+      color: greenyellow;
+      font-size: 12px;
+    "
+  >
+    {{ data.status }}
+  </div>
+</div>

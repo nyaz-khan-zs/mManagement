@@ -1,0 +1,23 @@
+<div
+  class="employee-update-container"
+  style="display: flex; flex-direction: column; gap: 4px"
+>
+  <div
+    class="employee-profile"
+    style="
+      display: flex;
+      flex-direction: row;
+      /* align-items: center; */
+      /* justify-content: center; */
+      gap: 4px;
+    "
+  >
+    <img
+      src="{{ data.imageUrl }}"
+      alt=""
+      style="height: 30px; width: 30px; border-radius: 50%"
+    />
+    <div>{{ data.name }}</div>
+  </div>
+  <div class="emp-updates" style="padding-left: 34px">{{ data.update }}</div>
+</div>

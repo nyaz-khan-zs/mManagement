@@ -2,13 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AssetsRoutingModule } from './assets-routing.module';
-
+import { AssetsComponent } from './assets.component';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    AssetsRoutingModule
-  ]
+  imports: [CommonModule, AssetsRoutingModule],
 })
-export class AssetsModule { }
+export class AssetsModule {}

@@ -21,6 +21,16 @@ import { EditorComponent } from './shared/editor/editor.component';
 import { HttpService } from './service/http-service/http.service';
 import { AuthGuard } from './auth.guard';
 import { HeaderComponent } from './shared/header/header.component';
+import { ProjectTimelineComponent } from './modules/project-timeline/project-timeline.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AssetsComponent } from './modules/assets/assets.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+// import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+// import { CalendarComponent } from './components/calendar/calendar.component';
+import { StoreModule } from '@ngrx/store';
+import { EmployeeUpdateComponent } from './modules/project-timeline/employee-update/employee-update.component';
+import { ProjectTimelineModule } from './modules/project-timeline/project-timeline.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +48,9 @@ import { HeaderComponent } from './shared/header/header.component';
     LoginComponent,
     EditorComponent,
     HeaderComponent,
+    ProjectTimelineComponent,
+    AssetsComponent,
+    // CalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +58,13 @@ import { HeaderComponent } from './shared/header/header.component';
     HttpClientModule,
     NgxWigModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ProjectTimelineModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+    StoreModule.forRoot({}, {}),
   ],
   providers: [HttpService, AuthGuard],
   bootstrap: [AppComponent],

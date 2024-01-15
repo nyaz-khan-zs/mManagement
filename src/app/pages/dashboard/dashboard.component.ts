@@ -11,6 +11,8 @@ import { ProjectService } from 'src/app/service/project/project.service';
 
 import { LocalStorageService } from 'src/app/service/local-storage/local-storage.service';
 import { SessionData } from 'src/app/models/models/session-data.interface';
+import { Router } from '@angular/router';
+import { RoutePaths } from 'src/app/models/models/route_path';
 
 @Component({
   selector: 'dashboard',
@@ -35,7 +37,8 @@ export class DashboardComponent implements OnInit {
     private employeeService: EmployeeService,
     private organisationService: OrganisationService,
     private projectService: ProjectService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private router: Router
   ) {
     this.sessionData = localStorageService.getSessionData();
   }
@@ -135,5 +138,10 @@ export class DashboardComponent implements OnInit {
 
   getUnionOfArray(array1: Employee[], array2: Employee[]): Employee[] {
     return [...array1, ...array2];
+  }
+
+  changeProject(id: number) {
+    console.log('I am here');
+    this.router.navigate([RoutePaths.PROJECT_ROUTE]);
   }
 }

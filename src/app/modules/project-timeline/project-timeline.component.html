@@ -1,0 +1,38 @@
+<div class="main">
+  <div class="project-description">
+    <div class="project-image-description">
+      <img
+        src="https://www.liquidplanner.com/wp-content/uploads/2019/04/HiRes-17.jpg"
+        alt=""
+        srcset=""
+        id="project-image"
+      />
+    </div>
+    <div class="project-details">
+      <div class="heading">Training And Upskilling</div>
+      <div class="description">
+        Training and Upskilling is a single solution to learn new things and
+        upskill current skills. The portal features various paths to select from
+        and then various courses within them, so that the user gets the exact
+        learning experience which can help him upskill and grow.
+      </div>
+    </div>
+  </div>
+
+  <div class="team-member-count">Team Member (39)</div>
+  <div class="team-member-list">
+    <div class="user one" *ngFor="let index of counterArray(30)">
+      <div class="username">Arshad</div>
+    </div>
+  </div>
+  <div class="project-updates">
+    <div class="current-month">2023 DECEMBER</div>
+    <div class="project-widget"></div>
+  </div>
+  <div class="calender">Hello Calender</div>
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <div *ngFor="let item of data">
+      <app-timeline [data]="item"></app-timeline>
+    </div>
+  </div>
+</div>

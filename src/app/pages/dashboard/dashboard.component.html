@@ -1,104 +1,183 @@
 <div>
-    <section *ngIf="projects">
-        <span class="section-title">Projects @{{organisation?.name}}</span>
-        <div class="section-content">
-            <div class="project-card" *ngFor="let project of projects">
-                <div class="project-card-title">
-                    <span class="title">{{project.name}}</span>
-                    <span *ngIf="project.member" class="isMember"></span>
-                </div>
-                <div class="project-card-size">
-                    <span>{{project.teamSize}} members</span>
-                </div>
-            </div>
+  <section *ngIf="projects">
+    <span class="section-title">Projects @{{ organisation?.name }}</span>
+    <div class="section-content">
+      <div
+        class="project-card"
+        *ngFor="let project of projects"
+        (click)="changeProject(project.id)"
+      >
+        <div class="project-card-title">
+          <span class="title">{{ project.name }}</span>
+          <span *ngIf="project.member" class="isMember"></span>
         </div>
-    </section>
-    <section *ngIf="directReportees && directReportees.length>0">
-        <div class="reportees-section-title">
-            <span>Direct Reportees</span>
-            <span class="link">View Direct Reportees Updates</span>
+        <div class="project-card-size">
+          <span>{{ project.teamSize }} members</span>
         </div>
-        <div class="section-content">
-            <div *ngFor="let reportee of directReportees" class="direct-reportee-card">
-                <div class="direct-reportee-card-image">
-                    <img src={{reportee.profileUrl}} alt={{reportee.name}} />
-                </div>
-                <div class="direct-reportee-card-content">
-                    <span>{{reportee.name}}</span>
-                    <span>{{reportee.designation}}</span>
-                    <span class="link">View Timeline</span>
-                    <span></span>
-                </div>
-            </div>
+      </div>
+    </div>
+  </section>
+  <section *ngIf="directReportees && directReportees.length > 0">
+    <div class="reportees-section-title">
+      <span>Direct Reportees</span>
+      <span class="link">View Direct Reportees Updates</span>
+    </div>
+    <div class="section-content">
+      <div
+        *ngFor="let reportee of directReportees"
+        class="direct-reportee-card"
+      >
+        <div class="direct-reportee-card-image">
+          <img src="{{ reportee.profileUrl }}" alt="{{ reportee.name }}" />
         </div>
-    </section>
-    <section>
-        <div class="update-section-box">
-            <div class="update-section-input-box" *ngIf="update">
-                <span class="section-title">My Updates For Today</span>
-                <editor [updates]="update.updates" class="update-section-border"></editor>
-            </div>
-            <div class="subordinate-stats-section" *ngIf="directReportees && directReportees.length>0 && subordinateLeaves">
-                <span class="subordinate-stats">
-                    <span class="subordinate-stats-title">On Leave - {{subordinateLeavesDate.getDay()}}
-                        {{subordinateLeavesDate.getMonthName()}}
-                        <span class="subordinate-count" >
-                            <span class="subordinate-count-text">Direct Reportees</span>
-                            {{subordinateLeaves.directReportees}}
-                        </span>
-                        <span class="subordinate-count">
-                            <span class="subordinate-count-text">Indirect Reportees</span>
-                            {{subordinateLeaves.indirectReportees}}</span>
-                    </span>
-                    <span>
-                        <span class="datepicker-toggle">
-                            <span class="datepicker-toggle-button"></span>
-                            <input type="date" class="datepicker-input" [(ngModel)]="selectedLeaveDate" (ngModelChange)="updateSubordinateLeave()" />
-                          </span>
-                    </span>
-                </span>
-                <div class="update-section-border" *ngIf="subordinateLeaves.directReportees + subordinateLeaves.indirectReportees > 0">
-                        <span *ngFor="let employee of getUnionOfArray(subordinateLeaves.directReporteesDetails,
-                        subordinateLeaves.indirectReporteesDetails)" class="subordinate-stats-employee">
-                            <img src={{employee.profileUrl}} alt={{employee.name}} />
-                            <span class="subordinate-stats-employee-name">{{employee.name}}</span>
-                        </span>
-                </div>
-                <div *ngIf="subordinateLeaves.directReportees + subordinateLeaves.indirectReportees <= 0" class="no-subordinate-data">
-                    No one is on leave
-                </div>
-            </div>
-            <div class="subordinate-stats-section" *ngIf="directReportees && directReportees.length>0 && subordinateNoUpdates">
-                <span class="subordinate-stats">
-                    <span class="subordinate-stats-title">No Updates - {{subordinateNoUpdateDate.getDay()}}
-                        {{subordinateNoUpdateDate.getMonthName()}}
-                        <span class="subordinate-count" >
-                            <span class="subordinate-count-text">Direct Reportees</span>
-                            {{subordinateNoUpdates.directReportees}}
-                        </span>
-                        <span class="subordinate-count">
-                            <span class="subordinate-count-text">Indirect Reportees</span>
-                            {{subordinateNoUpdates.indirectReportees}}</span>
-                    </span>
-                    <span>
-                        <span class="datepicker-toggle">
-                            <span class="datepicker-toggle-button"></span>
-                            <input type="date" class="datepicker-input" [(ngModel)]="selectedNoUpdatesDate" (ngModelChange)="updateSubordinateNoUpdate()">
-                          </span>
-                    </span>
-                </span>
-                <div class="update-section-border" *ngIf="subordinateNoUpdates.directReportees + subordinateNoUpdates.indirectReportees > 0">
-                        <span *ngFor="let employee of 
-                        getUnionOfArray(subordinateNoUpdates.directReporteesDetails,subordinateNoUpdates.indirectReporteesDetails)"
-                        class="subordinate-stats-employee" >
-                            <img src={{employee.profileUrl}} alt={{employee.name}} />
-                            <span class="subordinate-stats-employee-name">{{employee.name}}</span>
-                        </span>
-                </div>
-                <div *ngIf="subordinateNoUpdates.directReportees + subordinateNoUpdates.indirectReportees <= 0" class="no-subordinate-data">
-                    Everyone has updated
-                </div>
-            </div>
+        <div class="direct-reportee-card-content">
+          <span>{{ reportee.name }}</span>
+          <span>{{ reportee.designation }}</span>
+          <span class="link">View Timeline</span>
+          <span></span>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="update-section-box">
+      <div class="update-section-input-box" *ngIf="update">
+        <span class="section-title">My Updates For Today</span>
+        <editor
+          [updates]="update.updates"
+          class="update-section-border"
+        ></editor>
+      </div>
+      <div
+        class="subordinate-stats-section"
+        *ngIf="
+          directReportees && directReportees.length > 0 && subordinateLeaves
+        "
+      >
+        <span class="subordinate-stats">
+          <span class="subordinate-stats-title"
+            >On Leave - {{ subordinateLeavesDate.getDay() }}
+            {{ subordinateLeavesDate.getMonthName() }}
+            <span class="subordinate-count">
+              <span class="subordinate-count-text">Direct Reportees</span>
+              {{ subordinateLeaves.directReportees }}
+            </span>
+            <span class="subordinate-count">
+              <span class="subordinate-count-text">Indirect Reportees</span>
+              {{ subordinateLeaves.indirectReportees }}</span
+            >
+          </span>
+          <span>
+            <span class="datepicker-toggle">
+              <span class="datepicker-toggle-button"></span>
+              <input
+                type="date"
+                class="datepicker-input"
+                [(ngModel)]="selectedLeaveDate"
+                (ngModelChange)="updateSubordinateLeave()"
+              />
+            </span>
+          </span>
+        </span>
+        <div
+          class="update-section-border"
+          *ngIf="
+            subordinateLeaves.directReportees +
+              subordinateLeaves.indirectReportees >
+            0
+          "
+        >
+          <span
+            *ngFor="
+              let employee of getUnionOfArray(
+                subordinateLeaves.directReporteesDetails,
+                subordinateLeaves.indirectReporteesDetails
+              )
+            "
+            class="subordinate-stats-employee"
+          >
+            <img src="{{ employee.profileUrl }}" alt="{{ employee.name }}" />
+            <span class="subordinate-stats-employee-name">{{
+              employee.name
+            }}</span>
+          </span>
+        </div>
+        <div
+          *ngIf="
+            subordinateLeaves.directReportees +
+              subordinateLeaves.indirectReportees <=
+            0
+          "
+          class="no-subordinate-data"
+        >
+          No one is on leave
+        </div>
+      </div>
+      <div
+        class="subordinate-stats-section"
+        *ngIf="
+          directReportees && directReportees.length > 0 && subordinateNoUpdates
+        "
+      >
+        <span class="subordinate-stats">
+          <span class="subordinate-stats-title"
+            >No Updates - {{ subordinateNoUpdateDate.getDay() }}
+            {{ subordinateNoUpdateDate.getMonthName() }}
+            <span class="subordinate-count">
+              <span class="subordinate-count-text">Direct Reportees</span>
+              {{ subordinateNoUpdates.directReportees }}
+            </span>
+            <span class="subordinate-count">
+              <span class="subordinate-count-text">Indirect Reportees</span>
+              {{ subordinateNoUpdates.indirectReportees }}</span
+            >
+          </span>
+          <span>
+            <span class="datepicker-toggle">
+              <span class="datepicker-toggle-button"></span>
+              <input
+                type="date"
+                class="datepicker-input"
+                [(ngModel)]="selectedNoUpdatesDate"
+                (ngModelChange)="updateSubordinateNoUpdate()"
+              />
+            </span>
+          </span>
+        </span>
+        <div
+          class="update-section-border"
+          *ngIf="
+            subordinateNoUpdates.directReportees +
+              subordinateNoUpdates.indirectReportees >
+            0
+          "
+        >
+          <span
+            *ngFor="
+              let employee of getUnionOfArray(
+                subordinateNoUpdates.directReporteesDetails,
+                subordinateNoUpdates.indirectReporteesDetails
+              )
+            "
+            class="subordinate-stats-employee"
+          >
+            <img src="{{ employee.profileUrl }}" alt="{{ employee.name }}" />
+            <span class="subordinate-stats-employee-name">{{
+              employee.name
+            }}</span>
+          </span>
+        </div>
+        <div
+          *ngIf="
+            subordinateNoUpdates.directReportees +
+              subordinateNoUpdates.indirectReportees <=
+            0
+          "
+          class="no-subordinate-data"
+        >
+          Everyone has updated
+        </div>
+      </div>
+    </div>
+  </section>
 </div>

@@ -49,7 +49,7 @@ export class SidebarComponent {
     {
       name: 'My assets',
       logo: this.myAssetsIcon,
-      routerLink: RoutePaths.DASHBOARD_ROUTE,
+      routerLink: RoutePaths.ASSEST_ROUTE,
     },
     {
       name: '1:1 Meetings',
